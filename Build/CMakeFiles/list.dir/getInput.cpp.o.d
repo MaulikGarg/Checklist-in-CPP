@@ -1,6 +1,6 @@
 CMakeFiles/list.dir/getInput.cpp.o: \
- C:/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/getInput.cpp \
- C:/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/getInput.h \
+ C:/Users/HP/Documents/Work/Projects/Checklist/getInput.cpp \
+ C:/Users/HP/Documents/Work/Projects/Checklist/getInput.h \
  C:/msys64/ucrt64/include/c++/14.2.0/string \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/requires_hosted.h \
  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h \

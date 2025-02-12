@@ -6,9 +6,8 @@
 // main list of all the available lists
 class BossList {
  private:
-  // map which holds the list name as key and the list itself as value
+  //list of our Lists: Name + vector of elements
   std::vector<List> mainlist;
-
  public:
   // default constructor, when invoked, asks for a list.
   BossList();

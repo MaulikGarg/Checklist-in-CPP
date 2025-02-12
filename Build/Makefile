@@ -57,10 +57,10 @@ RM = /usr/bin/cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist
+CMAKE_SOURCE_DIR = /c/Users/HP/Documents/Work/Projects/Checklist
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build
+CMAKE_BINARY_DIR = /c/Users/HP/Documents/Work/Projects/Checklist/Build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build/CMakeFiles /c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles /c/Users/HP/Documents/Work/Projects/Checklist/Build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

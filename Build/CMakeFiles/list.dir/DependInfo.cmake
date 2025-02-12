@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/bossList.cpp" "CMakeFiles/list.dir/bossList.cpp.o" "gcc" "CMakeFiles/list.dir/bossList.cpp.o.d"
-  "/c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/getInput.cpp" "CMakeFiles/list.dir/getInput.cpp.o" "gcc" "CMakeFiles/list.dir/getInput.cpp.o.d"
-  "/c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/main.cpp" "CMakeFiles/list.dir/main.cpp.o" "gcc" "CMakeFiles/list.dir/main.cpp.o.d"
+  "/c/Users/HP/Documents/Work/Projects/Checklist/bossList.cpp" "CMakeFiles/list.dir/bossList.cpp.o" "gcc" "CMakeFiles/list.dir/bossList.cpp.o.d"
+  "/c/Users/HP/Documents/Work/Projects/Checklist/getInput.cpp" "CMakeFiles/list.dir/getInput.cpp.o" "gcc" "CMakeFiles/list.dir/getInput.cpp.o.d"
+  "/c/Users/HP/Documents/Work/Projects/Checklist/main.cpp" "CMakeFiles/list.dir/main.cpp.o" "gcc" "CMakeFiles/list.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

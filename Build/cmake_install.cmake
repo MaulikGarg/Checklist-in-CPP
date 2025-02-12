@@ -1,4 +1,4 @@
-# Install script for directory: /c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist
+# Install script for directory: /c/Users/HP/Documents/Work/Projects/Checklist
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,7 +40,7 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build/install_local_manifest.txt"
+  file(WRITE "/c/Users/HP/Documents/Work/Projects/Checklist/Build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -56,6 +56,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/c/Users/HP/Documents/Work/Projects/Checklist/Build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
