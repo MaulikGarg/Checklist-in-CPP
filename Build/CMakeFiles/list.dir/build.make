@@ -72,63 +72,79 @@ include CMakeFiles/list.dir/flags.make
 CMakeFiles/list.dir/codegen:
 .PHONY : CMakeFiles/list.dir/codegen
 
-CMakeFiles/list.dir/bossList.cpp.o: CMakeFiles/list.dir/flags.make
-CMakeFiles/list.dir/bossList.cpp.o: /c/Users/HP/Documents/Work/Projects/Checklist/bossList.cpp
-CMakeFiles/list.dir/bossList.cpp.o: CMakeFiles/list.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/list.dir/bossList.cpp.o"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/list.dir/bossList.cpp.o -MF CMakeFiles/list.dir/bossList.cpp.o.d -o CMakeFiles/list.dir/bossList.cpp.o -c /c/Users/HP/Documents/Work/Projects/Checklist/bossList.cpp
+CMakeFiles/list.dir/src/bossList.cpp.o: CMakeFiles/list.dir/flags.make
+CMakeFiles/list.dir/src/bossList.cpp.o: /c/Users/HP/Documents/Work/Projects/Checklist/src/bossList.cpp
+CMakeFiles/list.dir/src/bossList.cpp.o: CMakeFiles/list.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/list.dir/src/bossList.cpp.o"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/list.dir/src/bossList.cpp.o -MF CMakeFiles/list.dir/src/bossList.cpp.o.d -o CMakeFiles/list.dir/src/bossList.cpp.o -c /c/Users/HP/Documents/Work/Projects/Checklist/src/bossList.cpp
 
-CMakeFiles/list.dir/bossList.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/list.dir/bossList.cpp.i"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /c/Users/HP/Documents/Work/Projects/Checklist/bossList.cpp > CMakeFiles/list.dir/bossList.cpp.i
+CMakeFiles/list.dir/src/bossList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/list.dir/src/bossList.cpp.i"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /c/Users/HP/Documents/Work/Projects/Checklist/src/bossList.cpp > CMakeFiles/list.dir/src/bossList.cpp.i
 
-CMakeFiles/list.dir/bossList.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/list.dir/bossList.cpp.s"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/Users/HP/Documents/Work/Projects/Checklist/bossList.cpp -o CMakeFiles/list.dir/bossList.cpp.s
+CMakeFiles/list.dir/src/bossList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/list.dir/src/bossList.cpp.s"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/Users/HP/Documents/Work/Projects/Checklist/src/bossList.cpp -o CMakeFiles/list.dir/src/bossList.cpp.s
 
-CMakeFiles/list.dir/getInput.cpp.o: CMakeFiles/list.dir/flags.make
-CMakeFiles/list.dir/getInput.cpp.o: /c/Users/HP/Documents/Work/Projects/Checklist/getInput.cpp
-CMakeFiles/list.dir/getInput.cpp.o: CMakeFiles/list.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/list.dir/getInput.cpp.o"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/list.dir/getInput.cpp.o -MF CMakeFiles/list.dir/getInput.cpp.o.d -o CMakeFiles/list.dir/getInput.cpp.o -c /c/Users/HP/Documents/Work/Projects/Checklist/getInput.cpp
+CMakeFiles/list.dir/src/getInput.cpp.o: CMakeFiles/list.dir/flags.make
+CMakeFiles/list.dir/src/getInput.cpp.o: /c/Users/HP/Documents/Work/Projects/Checklist/src/getInput.cpp
+CMakeFiles/list.dir/src/getInput.cpp.o: CMakeFiles/list.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/list.dir/src/getInput.cpp.o"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/list.dir/src/getInput.cpp.o -MF CMakeFiles/list.dir/src/getInput.cpp.o.d -o CMakeFiles/list.dir/src/getInput.cpp.o -c /c/Users/HP/Documents/Work/Projects/Checklist/src/getInput.cpp
 
-CMakeFiles/list.dir/getInput.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/list.dir/getInput.cpp.i"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /c/Users/HP/Documents/Work/Projects/Checklist/getInput.cpp > CMakeFiles/list.dir/getInput.cpp.i
+CMakeFiles/list.dir/src/getInput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/list.dir/src/getInput.cpp.i"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /c/Users/HP/Documents/Work/Projects/Checklist/src/getInput.cpp > CMakeFiles/list.dir/src/getInput.cpp.i
 
-CMakeFiles/list.dir/getInput.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/list.dir/getInput.cpp.s"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/Users/HP/Documents/Work/Projects/Checklist/getInput.cpp -o CMakeFiles/list.dir/getInput.cpp.s
+CMakeFiles/list.dir/src/getInput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/list.dir/src/getInput.cpp.s"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/Users/HP/Documents/Work/Projects/Checklist/src/getInput.cpp -o CMakeFiles/list.dir/src/getInput.cpp.s
 
-CMakeFiles/list.dir/main.cpp.o: CMakeFiles/list.dir/flags.make
-CMakeFiles/list.dir/main.cpp.o: /c/Users/HP/Documents/Work/Projects/Checklist/main.cpp
-CMakeFiles/list.dir/main.cpp.o: CMakeFiles/list.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/list.dir/main.cpp.o"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/list.dir/main.cpp.o -MF CMakeFiles/list.dir/main.cpp.o.d -o CMakeFiles/list.dir/main.cpp.o -c /c/Users/HP/Documents/Work/Projects/Checklist/main.cpp
+CMakeFiles/list.dir/src/main.cpp.o: CMakeFiles/list.dir/flags.make
+CMakeFiles/list.dir/src/main.cpp.o: /c/Users/HP/Documents/Work/Projects/Checklist/src/main.cpp
+CMakeFiles/list.dir/src/main.cpp.o: CMakeFiles/list.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/list.dir/src/main.cpp.o"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/list.dir/src/main.cpp.o -MF CMakeFiles/list.dir/src/main.cpp.o.d -o CMakeFiles/list.dir/src/main.cpp.o -c /c/Users/HP/Documents/Work/Projects/Checklist/src/main.cpp
 
-CMakeFiles/list.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/list.dir/main.cpp.i"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /c/Users/HP/Documents/Work/Projects/Checklist/main.cpp > CMakeFiles/list.dir/main.cpp.i
+CMakeFiles/list.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/list.dir/src/main.cpp.i"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /c/Users/HP/Documents/Work/Projects/Checklist/src/main.cpp > CMakeFiles/list.dir/src/main.cpp.i
 
-CMakeFiles/list.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/list.dir/main.cpp.s"
-	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/Users/HP/Documents/Work/Projects/Checklist/main.cpp -o CMakeFiles/list.dir/main.cpp.s
+CMakeFiles/list.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/list.dir/src/main.cpp.s"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/Users/HP/Documents/Work/Projects/Checklist/src/main.cpp -o CMakeFiles/list.dir/src/main.cpp.s
+
+CMakeFiles/list.dir/src/list.cpp.o: CMakeFiles/list.dir/flags.make
+CMakeFiles/list.dir/src/list.cpp.o: /c/Users/HP/Documents/Work/Projects/Checklist/src/list.cpp
+CMakeFiles/list.dir/src/list.cpp.o: CMakeFiles/list.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/list.dir/src/list.cpp.o"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/list.dir/src/list.cpp.o -MF CMakeFiles/list.dir/src/list.cpp.o.d -o CMakeFiles/list.dir/src/list.cpp.o -c /c/Users/HP/Documents/Work/Projects/Checklist/src/list.cpp
+
+CMakeFiles/list.dir/src/list.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/list.dir/src/list.cpp.i"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /c/Users/HP/Documents/Work/Projects/Checklist/src/list.cpp > CMakeFiles/list.dir/src/list.cpp.i
+
+CMakeFiles/list.dir/src/list.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/list.dir/src/list.cpp.s"
+	/ucrt64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/Users/HP/Documents/Work/Projects/Checklist/src/list.cpp -o CMakeFiles/list.dir/src/list.cpp.s
 
 # Object files for target list
 list_OBJECTS = \
-"CMakeFiles/list.dir/bossList.cpp.o" \
-"CMakeFiles/list.dir/getInput.cpp.o" \
-"CMakeFiles/list.dir/main.cpp.o"
+"CMakeFiles/list.dir/src/bossList.cpp.o" \
+"CMakeFiles/list.dir/src/getInput.cpp.o" \
+"CMakeFiles/list.dir/src/main.cpp.o" \
+"CMakeFiles/list.dir/src/list.cpp.o"
 
 # External object files for target list
 list_EXTERNAL_OBJECTS =
 
-list.exe: CMakeFiles/list.dir/bossList.cpp.o
-list.exe: CMakeFiles/list.dir/getInput.cpp.o
-list.exe: CMakeFiles/list.dir/main.cpp.o
+list.exe: CMakeFiles/list.dir/src/bossList.cpp.o
+list.exe: CMakeFiles/list.dir/src/getInput.cpp.o
+list.exe: CMakeFiles/list.dir/src/main.cpp.o
+list.exe: CMakeFiles/list.dir/src/list.cpp.o
 list.exe: CMakeFiles/list.dir/build.make
 list.exe: CMakeFiles/list.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable list.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/c/Users/HP/Documents/Work/Projects/Checklist/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable list.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/list.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

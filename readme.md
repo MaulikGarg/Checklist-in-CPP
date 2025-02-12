@@ -1,9 +1,9 @@
 # Checklist (To-Do List Manager)
 
 ## 📌 Overview
-This is a **console-based To-Do List Manager** built in C++ using **CMake**. It allows users to create multiple lists, add or remove items from them, and manage them efficiently.
+This is a **console-based To-Do List Manager** built in C++ using **CMake** and **C++**. It allows users to create multiple lists, add or remove items from them, and manage them efficiently.
 
-## 🛠 Features
+## 🛠 Features (In Progress)
 - Create and manage multiple lists.
 - Add and remove items from lists.
 - Display available lists and their contents.
@@ -27,8 +27,8 @@ Checklist/
 ## 🏗 Setup & Build
 ### **1. Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/Checklist.git
-cd Checklist
+git clone https://github.com/MaulikGarg/Checklist-in-CPP.git
+cd Checklist-in-CPP
 ```
 
 ### **2. Build the Project**
@@ -55,6 +55,11 @@ list.exe  # On Windows
 - **Remove a List** → Choose an existing list to delete.
 - **Add/Remove Items** → Select a list and modify its contents.
 - **View Lists** → Display available lists and their items.
+
+## ✨ Current Goals
+- Add basic list add/remove
+- Add basic list-o-list add/remove
+- Add basic menu displays
 
 ## 🚀 Future Improvements
 - File storage (saving/loading lists)

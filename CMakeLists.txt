@@ -5,14 +5,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(SOURCES
-    bossList.cpp
-    getInput.cpp
-    main.cpp
+    src/bossList.cpp
+    src/getInput.cpp
+    src/main.cpp
+    src/list.cpp
 )
 
 set(HEADERS
-    bossList.h
-    getInput.h
+    src/bossList.h
+    src/getInput.h
+    src/list.h
 )
 
 add_executable(list ${SOURCES} ${HEADERS})

@@ -31,7 +31,7 @@ std::string getString() {
   }
 }
 
-char getChar(const std::string& allowed = {}) {
+char getChar(const std::string& allowed) {
   char ch;
   while (true) {
     std::cin >> ch;

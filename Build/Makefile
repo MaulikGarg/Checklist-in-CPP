@@ -129,77 +129,101 @@ list/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/build
 .PHONY : list/fast
 
-bossList.o: bossList.cpp.o
-.PHONY : bossList.o
+src/bossList.o: src/bossList.cpp.o
+.PHONY : src/bossList.o
 
 # target to build an object file
-bossList.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/bossList.cpp.o
-.PHONY : bossList.cpp.o
+src/bossList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/bossList.cpp.o
+.PHONY : src/bossList.cpp.o
 
-bossList.i: bossList.cpp.i
-.PHONY : bossList.i
+src/bossList.i: src/bossList.cpp.i
+.PHONY : src/bossList.i
 
 # target to preprocess a source file
-bossList.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/bossList.cpp.i
-.PHONY : bossList.cpp.i
+src/bossList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/bossList.cpp.i
+.PHONY : src/bossList.cpp.i
 
-bossList.s: bossList.cpp.s
-.PHONY : bossList.s
+src/bossList.s: src/bossList.cpp.s
+.PHONY : src/bossList.s
 
 # target to generate assembly for a file
-bossList.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/bossList.cpp.s
-.PHONY : bossList.cpp.s
+src/bossList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/bossList.cpp.s
+.PHONY : src/bossList.cpp.s
 
-getInput.o: getInput.cpp.o
-.PHONY : getInput.o
+src/getInput.o: src/getInput.cpp.o
+.PHONY : src/getInput.o
 
 # target to build an object file
-getInput.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/getInput.cpp.o
-.PHONY : getInput.cpp.o
+src/getInput.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/getInput.cpp.o
+.PHONY : src/getInput.cpp.o
 
-getInput.i: getInput.cpp.i
-.PHONY : getInput.i
+src/getInput.i: src/getInput.cpp.i
+.PHONY : src/getInput.i
 
 # target to preprocess a source file
-getInput.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/getInput.cpp.i
-.PHONY : getInput.cpp.i
+src/getInput.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/getInput.cpp.i
+.PHONY : src/getInput.cpp.i
 
-getInput.s: getInput.cpp.s
-.PHONY : getInput.s
+src/getInput.s: src/getInput.cpp.s
+.PHONY : src/getInput.s
 
 # target to generate assembly for a file
-getInput.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/getInput.cpp.s
-.PHONY : getInput.cpp.s
+src/getInput.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/getInput.cpp.s
+.PHONY : src/getInput.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/list.o: src/list.cpp.o
+.PHONY : src/list.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/list.cpp.o
+.PHONY : src/list.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/list.i: src/list.cpp.i
+.PHONY : src/list.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/list.cpp.i
+.PHONY : src/list.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/list.s: src/list.cpp.s
+.PHONY : src/list.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/list.cpp.s
+.PHONY : src/list.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/list.dir/build.make CMakeFiles/list.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -210,15 +234,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... list"
-	@echo "... bossList.o"
-	@echo "... bossList.i"
-	@echo "... bossList.s"
-	@echo "... getInput.o"
-	@echo "... getInput.i"
-	@echo "... getInput.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/bossList.o"
+	@echo "... src/bossList.i"
+	@echo "... src/bossList.s"
+	@echo "... src/getInput.o"
+	@echo "... src/getInput.i"
+	@echo "... src/getInput.s"
+	@echo "... src/list.o"
+	@echo "... src/list.i"
+	@echo "... src/list.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
