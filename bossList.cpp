@@ -1,5 +1,5 @@
 #include "bossList.h"
-
+#include "list"
 #include <iostream>
 #include <map>
 #include <string>
@@ -22,17 +22,20 @@ void BossList::addList() {
     // check if the name already exists in the mainlist, if it does, say it out
     // and ask again.
     for (const auto& i : mainlist) {
-      if (i.getName() == name){
+      if (i.getName() == name) {
         alreadyExists = true;
         break;
       }
     }
-    if(!alreadyExists) break;
+    if (!alreadyExists) break;
   }
   // initialize the list!
   mainlist.push_back({name});
   std::cout << "List " << name << " has been created.\n";
   std::cout << "Would you like to add elements to your list (y/n): ";
+  //stores the response of the user
+  char response = getValidInput::getChar(std::string{"ynYN"});
+  
 }
 
 void BossList::removeList() {}
