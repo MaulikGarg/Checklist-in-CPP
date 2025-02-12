@@ -1,0 +1,3 @@
+/c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build/CMakeFiles/list.dir
+/c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build/CMakeFiles/edit_cache.dir
+/c/Users/HP/Documents/Work/C++/PersonalProjects/Checklist/Build/CMakeFiles/rebuild_cache.dir

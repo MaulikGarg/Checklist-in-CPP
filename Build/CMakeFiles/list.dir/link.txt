@@ -1,0 +1,1 @@
+/ucrt64/bin/c++.exe -Wl,--enable-auto-import CMakeFiles/list.dir/bossList.cpp.o CMakeFiles/list.dir/getInput.cpp.o CMakeFiles/list.dir/main.cpp.o -o list.exe -Wl,--out-implib,liblist.dll.a -Wl,--major-image-version,0,--minor-image-version,0
