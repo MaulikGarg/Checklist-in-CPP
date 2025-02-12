@@ -1,13 +1,13 @@
 #ifndef BOSS_LIST_H
 #define BOSS_LIST_H
-#include <vector>
+#include <set>
 
 #include "list.h"
 // main list of all the available lists
 class BossList {
  private:
   //list of our Lists: Name + vector of elements
-  std::vector<List> mainlist;
+  std::set<List> mainlist;
  public:
   // default constructor, when invoked, asks for a list.
   BossList();

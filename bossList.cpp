@@ -1,11 +1,12 @@
 #include "bossList.h"
-#include "list"
+
 #include <iostream>
 #include <map>
 #include <string>
-#include <vector>
+#include <set>
 
 #include "getInput.h"
+#include "list.h"
 
 BossList::BossList() {
   std::cout << "Welcome to the list manager! \n";
@@ -18,24 +19,20 @@ void BossList::addList() {
   // loop until we get a valid name for our new list
   while (true) {
     name = getValidInput::getString();
-    bool alreadyExists{false};
-    // check if the name already exists in the mainlist, if it does, say it out
-    // and ask again.
-    for (const auto& i : mainlist) {
-      if (i.getName() == name) {
-        alreadyExists = true;
-        break;
-      }
-    }
-    if (!alreadyExists) break;
+    //insert the element into the set, if successful return true
+    //since this is a set, it will also check for duplication
+    auto ins = mainlist.insert(List{name});
+    //check if the insertion pair returned true
+    if(ins.second) break;
+    else std::cout << "That list already exists, please try again: ";
   }
-  // initialize the list!
-  mainlist.push_back({name});
   std::cout << "List " << name << " has been created.\n";
   std::cout << "Would you like to add elements to your list (y/n): ";
-  //stores the response of the user
+  // stores the response of the user
   char response = getValidInput::getChar(std::string{"ynYN"});
-  
+  if (response == 'y' || response == 'Y') {
+  }
+  return;
 }
 
 void BossList::removeList() {}
