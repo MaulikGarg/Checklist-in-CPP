@@ -39,6 +39,8 @@ class List {
   void removeElement();
   // shows a basic menu interface
   void showMenu();
+  // returns the elemental list as a constant reference, used for file writing
+  const std::set<std::string>& getList() const {return m_elements;}
 };
 
 #endif

@@ -106,6 +106,7 @@ void BossList::showLists() {
   }
 }
 
+//retrieves a specific list from a menu
 void BossList::getList() {
   // check if bosslist is empty
   if (isListEmpty()) return;
@@ -120,6 +121,7 @@ void BossList::getList() {
   iterator->second.showMenu();
 }
 
+//show main menu for current boss list
 void BossList::showMenu() {
   // put in a loop for current operations. Break when user is done
   while (true) {
@@ -149,7 +151,15 @@ void BossList::showMenu() {
         break;
       case options::showListOperations:
         getList();
+      case options::save:
+        saveList();
         break;
     }
   }
+}
+
+void BossList::saveList(){
+  std::cout << "Name of the file to save to: ";
+  std::string filename{getValidInput::getString()};
+  fileIO::writeJSON(this->m_mainlist, filename);
 }

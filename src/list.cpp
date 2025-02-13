@@ -4,11 +4,13 @@
 
 #include "getInput.h"
 
+//print the list and check if empty
 void List::printList() {
   if (m_elements.empty()) {
     std::cout << "This list has no elements!";
     return;
   }
+  //print the elements in a list format
   size_t i = 0;
   for (const auto& element : m_elements) {
     std::cout << ++i << ". " << element << '\n';

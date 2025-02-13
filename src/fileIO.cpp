@@ -25,4 +25,19 @@ void readJSON(json& data, const std::string& filename) {
   std::cout << "Loaded lists from " << filename << " successfully.\n";
   return;
 }
+
+void writeJSON(const std::map<std::string, List>& data, const std::string& filename) {
+  std::ofstream bossfile("../lists/" + filename + ".json");
+  if (!bossfile.good()) {
+    std::cout << "Writing to file " << filename << " failed. ";
+    return;
+  }
+  json inData;
+  for (const auto& [key, value] : data) {
+    for(const auto& i : value.getList()){
+      
+    }
+  }
+  
+}
 }  // namespace fileIO
