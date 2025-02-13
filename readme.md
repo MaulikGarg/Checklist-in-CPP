@@ -50,7 +50,7 @@ list.exe  # On Windows
 ```
 
 ### **Important Note**
-The .json lists are saved in a **/lists** folder. Please note that it must be in the same directory as the executable.
+The .json lists are saved in a **/lists** folder. Please note that it must be in the same directory as the executable. If there is no **/lists** folder, the project will create one.
 
 ## 🏗 How It Works
 ### **Main Components**

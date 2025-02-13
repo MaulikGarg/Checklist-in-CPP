@@ -38,6 +38,10 @@ void readJSON(json& data, const std::string& filename) {
 // attempt to write the current bosslist to a file
 void writeJSON(const std::map<std::string, List>& data,
                const std::string& filename) {
+  //checks if a Lists/ directory exists, if not, make it.
+  if(!std::filesystem::exists("lists")){
+    std::filesystem::create_directory("lists");
+  }
   // attempt to open/create the file
   std::ofstream bossfile("lists/" + filename + ".json");
   // if the creation somehow fails, print error and return
