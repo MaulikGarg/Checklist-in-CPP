@@ -3,13 +3,12 @@
 ## 📌 Overview
 This is a **console-based To-Do List Manager** built in C++ using **CMake** and **C++**. It allows users to create multiple lists, add or remove items from them, manage them efficiently, and save/load lists using **JSON**.
 
-## 🛠 Features (In Progress)
+## 🛠 Features
 - Create and manage multiple lists.
 - Add and remove items from lists.
 - Display available lists and their contents.
 - Store lists in memory.
 - Save and load lists using JSON.
-- Search for an item across all lists.
 
 ## 🏗 Project Structure
 ```
@@ -69,6 +68,7 @@ The .json lists are saved in a **/lists** folder. Please note that it must be in
 - **Save & Load** → Data persists between sessions using JSON.
 
 ## ✨ Current Goals
+- Search for an item across all lists.
 - Improve JSON parsing for better error handling.
 - Enhance file handling performance.
 
