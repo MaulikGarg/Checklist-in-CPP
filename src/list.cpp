@@ -5,14 +5,23 @@
 #include "getInput.h"
 
 void List::printList() {
-   if(m_elements.empty()){
-      std::cout << "This list has no elements!";
-      return;
-   }
+  if (m_elements.empty()) {
+    std::cout << "This list has no elements!";
+    return;
+  }
   size_t i = 0;
   for (const auto& element : m_elements) {
     std::cout << ++i << ". " << element << '\n';
   }
+}
+
+// function to add a given element to the list, returns false if the element
+// failed to be added in
+bool List::addElement(const std::string& element){
+  auto result = m_elements.insert(element); //attempt to add an element
+  //check outcome
+  if (!result.second) return false;
+  return true;
 }
 
 void List::addElement() {

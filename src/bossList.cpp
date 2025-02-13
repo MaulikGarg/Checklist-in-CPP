@@ -1,13 +1,33 @@
 #include "bossList.h"
 
-#include <../lib/json.hpp>
 #include <iostream>
 
+#include "fileIO.h"
 #include "getInput.h"
 #include "list.h"
 
 BossList::BossList() {
   std::cout << "Welcome to the list manager! \n";
+  // ask user for their mainlist file name and make a json object of it
+  std::cout << "Please enter the name of your list file: ";
+  std::string filename{getValidInput::getString()};
+  // retrieve data from a file
+  fileIO::json data{fileIO::readJSON(filename)};
+  // add data to the mainlist
+  // picks a [listname, list] pair from the file's data
+  for (const auto& [key, value] : data.items()) {
+    List temporary;  // temporary list to add our iterated list elements to
+    // picks an element from list and inserts it into temporary
+    for (const auto& i : value) {
+      if (!(temporary.addElement(i))) {
+        std::cout << "Warning: Skipping bad element in list '" << key << "'\n";
+        continue;  // Skip bad elements, but continue loading others
+      }
+    }
+    // insert the temporary list to the mainlist
+    m_mainlist[key] = temporary;
+  }
+  std::cout << "Loaded lists from " << filename << " successfully.\n";
   showMenu();
 }
 

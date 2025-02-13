@@ -1,9 +1,9 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include <array>
 #include <set>
 #include <string>
-#include <array>
 
 namespace listOptions {
 using namespace std::literals;
@@ -33,6 +33,8 @@ class List {
   void printList();
   // adds element(s) to the list
   void addElement();
+  // adds a given element to the list, returns false if addition failed
+  bool addElement(const std::string&);
   // removes an element to the list
   void removeElement();
   // shows a basic menu interface

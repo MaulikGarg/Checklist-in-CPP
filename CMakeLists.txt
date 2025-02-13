@@ -9,12 +9,14 @@ set(SOURCES
     src/getInput.cpp
     src/main.cpp
     src/list.cpp
+    src/fileIO.cpp
 )
 
 set(HEADERS
     src/bossList.h
     src/getInput.h
     src/list.h
+    src/fileIO.h
     lib/json.hpp
 )
 
