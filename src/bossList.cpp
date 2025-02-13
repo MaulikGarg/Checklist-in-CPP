@@ -9,25 +9,30 @@
 BossList::BossList() {
   std::cout << "Welcome to the list manager! \n";
   // ask user for their mainlist file name and make a json object of it
-  std::cout << "Please enter the name of your list file: ";
+  std::cout
+      << "Please enter the name of your list file(type 0 to create new): ";
   std::string filename{getValidInput::getString()};
-  // retrieve data from a file
-  fileIO::json data{fileIO::readJSON(filename)};
-  // add data to the mainlist
-  // picks a [listname, list] pair from the file's data
-  for (const auto& [key, value] : data.items()) {
-    List temporary;  // temporary list to add our iterated list elements to
-    // picks an element from list and inserts it into temporary
-    for (const auto& i : value) {
-      if (!(temporary.addElement(i))) {
-        std::cout << "Warning: Skipping bad element in list '" << key << "'\n";
-        continue;  // Skip bad elements, but continue loading others
+  //if the user wishes to load, open the file and load data
+  if (!(filename == "0")) {
+    // retrieve data from a file
+    fileIO::json data;
+    fileIO::readJSON(data, filename);
+    // add data to the mainlist
+    // picks a [listname, list] pair from the file's data
+    for (const auto& [key, value] : data.items()) {
+      List temporary;  // temporary list to add our iterated list elements to
+      // picks an element from list and inserts it into temporary
+      for (const auto& i : value) {
+        if (!(temporary.addElement(i))) {
+          std::cout << "Warning: Skipping bad element in list '" << key
+                    << "'\n";
+          continue;  // Skip bad elements, but continue loading others
+        }
       }
+      // insert the temporary list to the mainlist
+      m_mainlist[key] = temporary;
     }
-    // insert the temporary list to the mainlist
-    m_mainlist[key] = temporary;
   }
-  std::cout << "Loaded lists from " << filename << " successfully.\n";
   showMenu();
 }
 

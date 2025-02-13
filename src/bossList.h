@@ -29,8 +29,10 @@ class BossList {
   //returns true if the list is empty
   bool isListEmpty();
  public:
-  // default constructor, when invoked, asks for a list.
+  // default constructor, when invoked, asks for a file name and opens main menu.
   BossList();
+  //default destructor, writes the current bosslist to a file
+  ~BossList();
   // adds a list to the main list
   void addList();
   // removes a list from the main list
@@ -41,6 +43,8 @@ class BossList {
   void showMenu();
   // shows a specific list from the list collection
   void getList();
+  //saves the bosslist to a file
+  void saveList();
 };
 
 #endif
