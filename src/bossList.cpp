@@ -67,8 +67,8 @@ void BossList::removeList() {
 
 // shows all the lists currently saved to the disk
 void BossList::showLists() {
-  //if list count is zero
-  if(m_mainlist.size() == 0){
+  // if list count is zero
+  if (m_mainlist.size() == 0) {
     std::cout << "\nThere are no lists to show!\n";
     return;
   }
@@ -80,21 +80,40 @@ void BossList::showLists() {
   }
 }
 
+void BossList::getList() {
+  //check if bosslist is empty
+  if(m_mainlist.size() == 0 ){
+    std::cout << "Your list is empty!\n";
+    return;
+  }
+  std::cout << "Enter the ID of the list which you would like to see: ";
+  // get the id of the list which they would like to view
+  int id = getValidInput::getInt(1, m_mainlist.size());
+  // make an iterator (0 based) and move it ahead id-1 times to allign with the
+  // intended element of the user
+  auto iterator{m_mainlist.begin()};
+  std::advance(iterator, id - 1);
+  //display the name of the list
+  std::cout << "\n===List " << iterator->first << "===";
+  iterator->second.printList();
+}
+
 void BossList::showMenu() {
   // put in a loop for current operations. Break when user is done
   while (true) {
     using namespace bosslistOptions;
     std::cout << "\n=== Available Operations ===\n";
-    //prints all the available options from the namespace
-    for(size_t i {0}; i < std::size(str_options); i++){
+    // prints all the available options from the namespace
+    for (size_t i{0}; i < std::size(str_options); i++) {
       std::cout << i << ". " << str_options[i] << '\n';
     }
     std::cout
         << "\nPlease enter the ID of the operation you would like to perform: ";
 
     // get a response and act on it.
-    switch (static_cast<options>(getValidInput::getInt(options::exit-1,options::max)))  {
-      case options::exit :
+    switch (static_cast<options>(
+        getValidInput::getInt(options::exit, options::max - 1))) {
+      case options::exit:
         std::cout << "Exiting the program!\n";
         return;
       case options::add:
@@ -105,6 +124,9 @@ void BossList::showMenu() {
         break;
       case options::show:
         showLists();
+        break;
+      case options::showList:
+        getList();
         break;
     }
   }

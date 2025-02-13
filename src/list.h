@@ -6,10 +6,10 @@
 class List {
  private:
   std::set<std::string> m_elements{};
-  // shows all the elements in the list
-  void printList();
 
  public:
+  // shows all the elements in the list
+  void printList();
   // adds element(s) to the list
   void addElement();
   // removes an element to the list
