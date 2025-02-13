@@ -76,4 +76,8 @@ void BossList::showLists() {
   }
 }
 
-void BossList::getList() {}
+void BossList::showMenu() {
+  std::cout << "Here are the available operations, please enter the number of the operation you would like to perform: ";
+  
+
+}

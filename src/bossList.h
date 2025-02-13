@@ -17,8 +17,8 @@ class BossList {
   void removeList();
   // shows all available lists
   void showLists();
-  // shows a specific list from the list of lists
-  void getList();
+  //shows a basic menu with add/remove/view list
+  void showMenu();
 };
 
 #endif

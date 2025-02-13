@@ -23,6 +23,22 @@ bool didInpWork() {
   return true;
 }
 
+// get an integer from a range and verify if valid input
+int getInt(int min, int max) {
+  int input;
+  while (true) {
+    std::cin >> input;
+    if (!didInpWork()) continue;
+    if (!(min <= input && input <= max)) {
+      ignoreLine();
+      std::cout << "Please enter a number between " << min << " and " << max
+                << " .\n> ";
+      continue;
+    }
+    return input;
+  }
+}
+
 std::string getString() {
   std::string str{};
   while (true) {
@@ -47,7 +63,10 @@ char getChar(const std::string& allowed) {
 
     std::cout
         << "That was invalid, please enter one of these allowed inputs:  ";
-    for (auto i : allowed) std::cout << i << ", ";
+    for (size_t i = 0; i < allowed.size(); ++i) {
+      std::cout << allowed[i];
+      if (i != allowed.size() - 1) std::cout << ", ";
+    }
     std::cout << "\n>";
   }
 }
