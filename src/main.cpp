@@ -6,15 +6,15 @@
 int main() {
   // basic greeting
   std::cout << "\n=== Welcome to the List Manager ===\n";
-  //keeps a collection open until the user wants to quit
+  // keeps a collection open until the user wants to quit
   while (true) {
     std::cout << "\nWould you like to open a collection?(y/n)\n > ";
     char response = getValidInput::getChar(std::string{"ynYN"});
-    //the user would like a mainlist, make and continue operations there.
+    // the user would like a mainlist, make and continue operations there.
     if (response == 'y' || response == 'Y') {
       BossList userlist;
     } else {
-      //user wants to leave
+      // user wants to leave
       break;
     }
   }

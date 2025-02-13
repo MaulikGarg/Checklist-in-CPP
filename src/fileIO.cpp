@@ -46,11 +46,11 @@ void writeJSON(const std::map<std::string, List>& data,
     return;
   }
   json inData;
-  //paste the current bossfile data to the inData json 
+  // paste the current bossfile data to the inData json
   for (const auto& [key, value] : data) {
     inData[key] = value.getList();
   }
-  //send the inData to the selected file
+  // send the inData to the selected file
   bossfile << inData;
   bossfile.close();
 }

@@ -166,3 +166,8 @@ void BossList::saveList(){
   fileIO::writeJSON(this->m_mainlist, filename);
   std::cout << "Save Success!\n";
 }
+
+//saves the list before exiting just incase
+BossList::~BossList(){
+  saveList();
+}

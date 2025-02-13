@@ -4,13 +4,13 @@
 
 #include "getInput.h"
 
-//print the list and check if empty
+// print the list and check if empty
 void List::printList() {
   if (m_elements.empty()) {
     std::cout << "This list has no elements!\n";
     return;
   }
-  //print the elements in a list format
+  // print the elements in a list format
   size_t i = 0;
   for (const auto& element : m_elements) {
     std::cout << ++i << ". " << element << '\n';
@@ -19,9 +19,9 @@ void List::printList() {
 
 // function to add a given element to the list, returns false if the element
 // failed to be added in
-bool List::addElement(const std::string& element){
-  auto result = m_elements.insert(element); //attempt to add an element
-  //check outcome
+bool List::addElement(const std::string& element) {
+  auto result = m_elements.insert(element);  // attempt to add an element
+  // check outcome
   if (!result.second) return false;
   return true;
 }
