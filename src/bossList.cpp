@@ -77,12 +77,11 @@ void BossList::showLists() {
 void BossList::showMenu() {
   // put in a loop for current operations. Break when user is done
   while (true) {
+    std::cout << "\n=== Available Operations ===\n";
+    for(size_t i {0}; i < std::size(bosslistOptions::options); i++){
+      std::cout << i << ". " << bosslistOptions::options[i] << '\n';
+    }
     std::cout
-        << "\n=== Available Operations ===\n"
-        << "0. Exit Menu\n"
-        << "1. Add a list\n"
-        << "2. Remove a list\n"
-        << "3. Show current lists\n"
         << "Please enter the ID of the operation you would like to perform: ";
 
     // get a response and act on it.
