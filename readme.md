@@ -13,7 +13,7 @@ This is a **console-based To-Do List Manager** built in C++ using **CMake** and 
 ```
 Checklist/
 │── lib/
-│   ├── json.hpp  # api for handling jsons
+│   ├── json.hpp       # api for handling jsons
 │── src/
 │   ├── bossList.cpp  # Manages multiple lists
 │   ├── bossList.h    # BossList class definition

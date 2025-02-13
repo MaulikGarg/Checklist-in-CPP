@@ -1,5 +1,6 @@
 #include "bossList.h"
 
+#include <../lib/json.hpp>
 #include <iostream>
 
 #include "getInput.h"

@@ -15,6 +15,7 @@ set(HEADERS
     src/bossList.h
     src/getInput.h
     src/list.h
+    lib/json.hpp
 )
 
 add_executable(list ${SOURCES} ${HEADERS})
