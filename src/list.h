@@ -2,11 +2,10 @@
 #define LIST_H
 
 #include <string>
-#include <vector>
-
+#include <set>
 class List{
    private:
-      std::vector<std::string> elements {};
+      std::set<std::string> elements {};
    public: 
       //adds an element to the list, returns 1 if add successful and 0 if failure
       bool addElement();

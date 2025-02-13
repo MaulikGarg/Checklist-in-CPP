@@ -1,8 +1,6 @@
 #include "bossList.h"
 
 #include <iostream>
-#include <map>
-#include <string>
 
 #include "getInput.h"
 #include "list.h"
@@ -102,5 +100,5 @@ void BossList::showMenu() {
         showLists();
         break;
     }
-    }
+  }
 }
