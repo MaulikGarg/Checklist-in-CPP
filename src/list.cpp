@@ -70,7 +70,6 @@ void List::showMenu() {
     switch (static_cast<options>(
         getValidInput::getInt(options::exit, options::max - 1))) {
       case options::exit:
-        std::cout << "Exiting the program!\n";
         return;
       case options::add:
         addElement();

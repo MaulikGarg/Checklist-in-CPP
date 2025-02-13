@@ -36,10 +36,9 @@ void BossList::addList() {
     if (m_mainlist.find(name) != m_mainlist.end()) {
       std::cout << "That list already exists, please try again: ";
       continue;
-    } else {
-      m_mainlist.insert({name, List{}});
-      break;
     }
+    m_mainlist.insert({name, List{}});
+    break;
   }
   std::cout << "\nList " << name << " has been created.\n";
   std::cout << "Would you like to add elements to your list (y/n): ";
@@ -89,7 +88,7 @@ void BossList::getList() {
   int id = getValidInput::getInt(1, m_mainlist.size());
   // make an iterator (0 based) and move it ahead id-1 times to allign with the
   // intended element of the user
-  auto iterator = std::next(m_mainlist.begin(), id-1);
+  auto iterator = std::next(m_mainlist.begin(), id - 1);
   // display the name of the list
   std::cout << "\n===List " << iterator->first << "===\n";
   iterator->second.showMenu();
