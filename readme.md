@@ -57,11 +57,6 @@ list.exe  # On Windows
 - **View Lists** → Display available lists and their items.
 
 ## ✨ Current Goals
-- Add the ability to add a list's elements.
-- Add the ability to remove a list's elements.
-- Add the ability to show a list's elements.
-- Add basic menu display for individual list.
-- Add the ability to switch between menus.
 - Add basic JSON parsing and saving/loading of BossList.
 
 ## 🚀 Future Improvements
