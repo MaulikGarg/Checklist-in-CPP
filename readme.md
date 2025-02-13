@@ -1,7 +1,7 @@
-# Checklist (To-Do List Manager)
+# Checklist Organizer
 
 ## 📌 Overview
-This is a **console-based To-Do List Manager** built in C++ using **CMake** and **C++**. It allows users to create multiple lists, add or remove items from them, manage them efficiently, and save/load lists using **JSON**.
+This is a **console-based Multi List Manager** built in C++ using **CMake** and **C++**. It allows users to create multiple lists, add or remove items from them, manage them efficiently, and save/load lists using **JSON**.
 
 ## 🛠 Features
 - Create and manage multiple lists.
