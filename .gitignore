@@ -1,1 +1,2 @@
-dev/*
+# CMake build directory
+/build/

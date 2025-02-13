@@ -4,6 +4,10 @@
 #include <vector>
 
 namespace getValidInput{
+   //clears extra input that may be in the buffer
+   void ignoreLine();
+   //returns true if cin succeeded
+   bool didInpWork();
    //gets a valid string and returns it
    std::string getString();
    //gets a valid integer integer and allows it

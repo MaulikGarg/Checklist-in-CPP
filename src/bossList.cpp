@@ -13,6 +13,7 @@ BossList::BossList() {
   addList();
 }
 
+//adds a list to the bosslist set whilst checking for duplicate names and sortion
 void BossList::addList() {
   std::cout << "Please type in the name of your list: ";
   std::string name{};

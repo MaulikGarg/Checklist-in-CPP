@@ -10,6 +10,7 @@ void ignoreLine() {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
+//returns a bool for whether normal cin worked, gives error statement and clears buffer if not
 bool didInpWork() {
   // if cin failed, return it to safe state and return false
   if (!std::cin) {

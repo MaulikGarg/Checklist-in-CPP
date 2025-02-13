@@ -2,4 +2,5 @@
 #include <iostream>
 int main(){
    BossList mylist;
+   
 }
