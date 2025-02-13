@@ -42,6 +42,7 @@ int getInt(int min, int max) {
   }
 }
 
+//gets a string line and returns it
 std::string getString() {
   std::string str{};
   while (true) {

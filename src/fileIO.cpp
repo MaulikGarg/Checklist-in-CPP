@@ -19,10 +19,12 @@ void readJSON(json& data, const std::string& filename) {
     std::cout << "Error: File is empty!\n";
     return;
   }
-  // read data
+  // try to read data
   try {
     data = json::parse(bossfile);
+    // if the file is not in proper format, close the file and return
   } catch (const json::parse_error& e) {
+    bossfile.close();
     std::cout << "Error: File is invalid!\n";
     return;
   }
@@ -33,17 +35,22 @@ void readJSON(json& data, const std::string& filename) {
   return;
 }
 
+// attempt to write the current bosslist to a file
 void writeJSON(const std::map<std::string, List>& data,
                const std::string& filename) {
+  // attempt to open/create the file
   std::ofstream bossfile("../lists/" + filename + ".json");
+  // if the creation somehow fails, print error and return
   if (!bossfile.is_open()) {
     std::cout << "Writing to file " << filename << " failed. ";
     return;
   }
   json inData;
+  //paste the current bossfile data to the inData json 
   for (const auto& [key, value] : data) {
     inData[key] = value.getList();
   }
+  //send the inData to the selected file
   bossfile << inData;
   bossfile.close();
 }

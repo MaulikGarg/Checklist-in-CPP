@@ -7,10 +7,9 @@
 #include "list.h"
 
 BossList::BossList() {
-  std::cout << "Welcome to the list manager! \n";
   // ask user for their mainlist file name and make a json object of it
   std::cout
-      << "Please enter the name of your list file(type 0 to create new): ";
+      << "Please enter the name of your collection file(type 0 to create new): ";
   std::string filename{getValidInput::getString()};
   //if the user wishes to load, open the file and load data
   if (!(filename == "0")) {
@@ -36,9 +35,10 @@ BossList::BossList() {
   showMenu();
 }
 
+//check if the list is empty, if so, say it and return true
 bool BossList::isListEmpty() {
   if (m_mainlist.empty()) {
-    std::cout << "Your list is empty!\n";
+    std::cout << "Your collection is empty, try adding some lists!\n";
     return true;
   }
   return false;
@@ -67,11 +67,11 @@ void BossList::addList() {
     break;
   }
   std::cout << "\nList " << name << " has been created.\n";
-  std::cout << "Would you like to add elements to your list (y/n): ";
+  std::cout << "Would you like to add elements to your new list (y/n): ";
   // stores the response of the user
   char response = getValidInput::getChar(std::string{"ynYN"});
   if (response == 'y' || response == 'Y') {
-    m_mainlist[name].addElement();
+    m_mainlist[name].addElement(); //add elements to the newly made list
   }
   return;
 }
@@ -87,6 +87,7 @@ void BossList::removeList() {
     std::cout << "\nOperation cancelled.\n";
     return;
   }
+  //if the list erasure fails, then it must not exist
   if (!m_mainlist.erase(name)) {
     std::cout << "\nThat list does not exist.\n";
     return;
@@ -138,7 +139,6 @@ void BossList::showMenu() {
     switch (static_cast<options>(
         getValidInput::getInt(options::exit, options::max - 1))) {
       case options::exit:
-        std::cout << "Exiting the program!\n";
         return;
       case options::add:
         addList();
@@ -161,6 +161,8 @@ void BossList::showMenu() {
 
 void BossList::saveList(){
   std::cout << "Name of the file to save to: ";
+  //get the name of the file to write to and save to that file
   std::string filename{getValidInput::getString()};
   fileIO::writeJSON(this->m_mainlist, filename);
+  std::cout << "Save Success!\n";
 }
