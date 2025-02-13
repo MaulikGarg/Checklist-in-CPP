@@ -5,7 +5,7 @@
 #include <set>
 class List{
    private:
-      std::set<std::string> elements {};
+      std::set<std::string> m_elements {};
    public: 
       //adds an element to the list, returns 1 if add successful and 0 if failure
       bool addElement();

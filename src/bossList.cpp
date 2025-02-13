@@ -25,11 +25,11 @@ void BossList::addList() {
       return;
     }
     // checks if the mainlist already has the list
-    if (mainlist.find(name) != mainlist.end()) {
+    if (m_mainlist.find(name) != m_mainlist.end()) {
       std::cout << "That list already exists, please try again: ";
       continue;
     } else {
-      mainlist.insert({name, List{}});
+      m_mainlist.insert({name, List{}});
       break;
     }
   }
@@ -38,14 +38,14 @@ void BossList::addList() {
   // stores the response of the user
   char response = getValidInput::getChar(std::string{"ynYN"});
   if (response == 'y' || response == 'Y') {
-    mainlist[name].addElement();
+    m_mainlist[name].addElement();
   }
   return;
 }
 
 // removes a specific list from the bosslist
 void BossList::removeList() {
-  std::cout << "Please enter the name of the string you would like to "
+  std::cout << "Please enter the name of the list you would like to "
                "remove(type 0 to cancel operation): ";
   std::string name{getValidInput::getString()};
   // check if the user wishes to cancel operation
@@ -54,22 +54,27 @@ void BossList::removeList() {
     return;
   }
   // lookup the name in the list of lists
-  auto removable_it{mainlist.find(name)};
+  auto removable_it{m_mainlist.find(name)};
   // if the list does not exist, print a message and return
-  if (removable_it == mainlist.end()) {
+  if (removable_it == m_mainlist.end()) {
     std::cout << "That list does not exist.\n";
     return;
   }
   // remove the element from the map
-  mainlist.erase(removable_it);
+  m_mainlist.erase(removable_it);
   std::cout << "List " << name << " has been removed.\n";
 }
 
 // shows all the lists currently saved to the disk
 void BossList::showLists() {
+  //if list count is zero
+  if(m_mainlist.size() == 0){
+    std::cout << "There are no lists to show!\n";
+    return;
+  }
   // count to keep track of the number of lists
   int count{};
-  for (const auto& i : mainlist) {
+  for (const auto& i : m_mainlist) {
     std::cout << ++count << ". " << i.first << '\n';
   }
 }
@@ -77,25 +82,27 @@ void BossList::showLists() {
 void BossList::showMenu() {
   // put in a loop for current operations. Break when user is done
   while (true) {
+    using namespace bosslistOptions;
     std::cout << "\n=== Available Operations ===\n";
-    for(size_t i {0}; i < std::size(bosslistOptions::options); i++){
-      std::cout << i << ". " << bosslistOptions::options[i] << '\n';
+    //prints all the available options from the namespace
+    for(size_t i {0}; i < std::size(str_options); i++){
+      std::cout << i << ". " << str_options[i] << '\n';
     }
     std::cout
         << "Please enter the ID of the operation you would like to perform: ";
 
     // get a response and act on it.
-    switch (getValidInput::getInt(0, 3)) {
-      case 0:
+    switch (static_cast<options>(getValidInput::getInt(options::exit-1,options::max)))  {
+      case options::exit :
         std::cout << "Exiting the program!\n";
         return;
-      case 1:
+      case options::add:
         addList();
         break;
-      case 2:
+      case options::remove:
         removeList();
         break;
-      case 3:
+      case options::show:
         showLists();
         break;
     }

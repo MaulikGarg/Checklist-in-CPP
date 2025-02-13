@@ -23,7 +23,7 @@ bool didInpWork() {
   return true;
 }
 
-// get an integer from a range and verify if valid input
+// get an integer from a range(exclusive) and verify if valid input
 int getInt(int min, int max) {
   int input;
   while (true) {
@@ -31,7 +31,7 @@ int getInt(int min, int max) {
     //if cin has failed(ex: a character has been entered), return it to valid state and try again.
     if (!didInpWork()) continue;
     //if the input is outside the required range, print the min max and try again.
-    if (!(min <= input && input <= max)) {
+    if (!(min < input && input < max)) {
       std::cout << "Please enter a number between " << min << " and " << max
                 << " .\n> ";
       continue;

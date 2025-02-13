@@ -1,20 +1,30 @@
 #ifndef BOSS_LIST_H
 #define BOSS_LIST_H
-#include <map>
 #include <array>
+#include <map>
+
 #include "list.h"
 
 namespace bosslistOptions {
 using namespace std::literals;
-constexpr std::array options{"Exit Menu"sv, "Add a list"sv, "Remove a list"sv,
-                             "Show current lists"sv};
+enum options {
+  exit,
+  add,
+  remove,
+  show,
+  max,
+};
+constexpr std::array str_options{"Exit Menu"sv, "Add a list"sv,
+                                 "Remove a list"sv, "Show current lists"sv};
+
+static_assert(max == std::size(str_options));
 }  // namespace bosslistOptions
 
 // main list of all the available lists
 class BossList {
  private:
   // list of our Lists: Name + vector of elements
-  std::map<std::string, List> mainlist;
+  std::map<std::string, List> m_mainlist;
 
  public:
   // default constructor, when invoked, asks for a list.
