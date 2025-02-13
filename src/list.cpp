@@ -1,16 +1,13 @@
 #include "list.h"
 #include <vector>
 #include <string>
+#include <iostream>
 
 bool List::addElement(){
-
+   std::cout << "called";
 }
 
 bool List::removeElement(){
    
 }
 
-bool List::operator<(const List& rhs) const {
-   if(name < rhs.name) return true;
-   return false;
-}
