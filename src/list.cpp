@@ -7,7 +7,7 @@
 //print the list and check if empty
 void List::printList() {
   if (m_elements.empty()) {
-    std::cout << "This list has no elements!";
+    std::cout << "This list has no elements!\n";
     return;
   }
   //print the elements in a list format
@@ -62,7 +62,7 @@ void List::removeElement() {
   m_elements.erase(iterator);
   // print success message and the new list
   std::cout << "Element successfully removed.\n";
-  this->printList();
+  printList();
 }
 
 void List::showMenu() {

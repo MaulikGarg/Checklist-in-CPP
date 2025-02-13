@@ -9,7 +9,7 @@ void readJSON(json& data, const std::string& filename) {
   // make an input stream of the json file
   std::ifstream bossfile("../lists/" + filename + ".json");
   // check if the file opening failed
-  if (!bossfile.good()) {
+  if (!bossfile.is_open()) {
     std::cout << "Failed to open file ../lists/" << filename
               << ".json\n Starting with an empty list.\n";
     return;
@@ -20,24 +20,31 @@ void readJSON(json& data, const std::string& filename) {
     return;
   }
   // read data
-  data = json::parse(bossfile);
+  try {
+    data = json::parse(bossfile);
+  } catch (const json::parse_error& e) {
+    std::cout << "Error: File is invalid!\n";
+    return;
+  }
+
+  // close the now opened file as it is so no longer needed
   bossfile.close();
   std::cout << "Loaded lists from " << filename << " successfully.\n";
   return;
 }
 
-void writeJSON(const std::map<std::string, List>& data, const std::string& filename) {
+void writeJSON(const std::map<std::string, List>& data,
+               const std::string& filename) {
   std::ofstream bossfile("../lists/" + filename + ".json");
-  if (!bossfile.good()) {
+  if (!bossfile.is_open()) {
     std::cout << "Writing to file " << filename << " failed. ";
     return;
   }
   json inData;
   for (const auto& [key, value] : data) {
-    for(const auto& i : value.getList()){
-      
-    }
+    inData[key] = value.getList();
   }
-  
+  bossfile << inData;
+  bossfile.close();
 }
 }  // namespace fileIO

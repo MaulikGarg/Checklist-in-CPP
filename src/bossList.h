@@ -33,7 +33,7 @@ class BossList {
   // default constructor, when invoked, asks for a file name and opens main menu.
   BossList();
   //default destructor, writes the current bosslist to a file
-  ~BossList();
+  // ~BossList();
   // adds a list to the main list
   void addList();
   // removes a list from the main list

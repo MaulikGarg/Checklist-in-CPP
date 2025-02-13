@@ -151,6 +151,7 @@ void BossList::showMenu() {
         break;
       case options::showListOperations:
         getList();
+        break;
       case options::save:
         saveList();
         break;
