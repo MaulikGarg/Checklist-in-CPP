@@ -28,21 +28,23 @@ int getInt(int min, int max) {
   int input;
   while (true) {
     std::cin >> input;
-    //if cin has failed(ex: a character has been entered), return it to valid state and try again.
+    // if cin has failed(ex: a character has been entered), return it to valid
+    // state and try again.
     if (!didInpWork()) continue;
-    //if the input is outside the required range, print the min max and try again.
+    // if the input is outside the required range, print the min max and try
+    // again.
     if (!(min <= input && input <= max)) {
       std::cout << "Please enter a number between " << min << " and " << max
                 << " .\n> ";
       continue;
     }
-    //to make sure the extra input is cleared properly
+    // to make sure the extra input is cleared properly
     ignoreLine();
     return input;
   }
 }
 
-//gets a string line and returns it
+// gets a string line and returns it
 std::string getString() {
   std::string str{};
   while (true) {
@@ -56,9 +58,14 @@ std::string getString() {
 char getChar(const std::string& allowed) {
   char ch;
   while (true) {
-    std::cin >> ch;
+    std::string input{};
+    std::cin >> input;
+    char ch = input[0];
     // check if cin worked, if it did proceed with checking
-    if (!didInpWork()) continue;
+    if (!didInpWork()) {
+      ignoreLine();
+      continue;
+    }
     // checks if the character matches the allowed string
     if (allowed.empty() || allowed.find(ch) != std::string::npos) {
       ignoreLine();

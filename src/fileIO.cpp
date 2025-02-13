@@ -7,10 +7,10 @@ using json = nlohmann::json;
 // reads data from already saved file and returns it as a json object
 void readJSON(json& data, const std::string& filename) {
   // make an input stream of the json file
-  std::ifstream bossfile("../lists/" + filename + ".json");
+  std::ifstream bossfile("lists/" + filename + ".json");
   // check if the file opening failed
   if (!bossfile.is_open()) {
-    std::cout << "Failed to open file ../lists/" << filename
+    std::cout << "Failed to open file lists/" << filename
               << ".json\n Starting with an empty list.\n";
     return;
   }
@@ -39,7 +39,7 @@ void readJSON(json& data, const std::string& filename) {
 void writeJSON(const std::map<std::string, List>& data,
                const std::string& filename) {
   // attempt to open/create the file
-  std::ofstream bossfile("../lists/" + filename + ".json");
+  std::ofstream bossfile("lists/" + filename + ".json");
   // if the creation somehow fails, print error and return
   if (!bossfile.is_open()) {
     std::cout << "Writing to file " << filename << " failed. ";

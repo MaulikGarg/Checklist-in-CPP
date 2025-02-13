@@ -8,7 +8,7 @@ int main() {
   std::cout << "\n=== Welcome to the List Manager ===\n";
   //keeps a collection open until the user wants to quit
   while (true) {
-    std::cout << "\nWould you like to open a collection?\n > ";
+    std::cout << "\nWould you like to open a collection?(y/n)\n > ";
     char response = getValidInput::getChar(std::string{"ynYN"});
     //the user would like a mainlist, make and continue operations there.
     if (response == 'y' || response == 'Y') {

@@ -1,19 +1,21 @@
 # Checklist (To-Do List Manager)
 
 ## 📌 Overview
-This is a **console-based To-Do List Manager** built in C++ using **CMake** and **C++**. It allows users to create multiple lists, add or remove items from them, and manage them efficiently.
+This is a **console-based To-Do List Manager** built in C++ using **CMake** and **C++**. It allows users to create multiple lists, add or remove items from them, manage them efficiently, and save/load lists using **JSON**.
 
 ## 🛠 Features (In Progress)
 - Create and manage multiple lists.
 - Add and remove items from lists.
 - Display available lists and their contents.
 - Store lists in memory.
+- Save and load lists using JSON.
+- Search for an item across all lists.
 
 ## 🏗 Project Structure
 ```
 Checklist/
 │── lib/
-│   ├── json.hpp       # api for handling jsons
+│   ├── json.hpp       # API for handling JSON
 │── src/
 │   ├── bossList.cpp  # Manages multiple lists
 │   ├── bossList.h    # BossList class definition
@@ -21,6 +23,8 @@ Checklist/
 │   ├── list.h        # List class definition
 │   ├── getInput.cpp  # Handles user input
 │   ├── getInput.h    # Input validation functions
+│   ├── fileIO.cpp    # Handles file operations (JSON read/write)
+│   ├── fileIO.h      # File I/O functions
 │   ├── main.cpp      # Entry point of the program
 │── CMakeLists.txt    # CMake build configuration
 │── README.md         # Project documentation
@@ -46,25 +50,32 @@ cmake --build .
 list.exe  # On Windows
 ```
 
+### **Important Note**
+The .json lists are saved in a **/lists** folder. Please note that it must be in the same directory as the executable.
+
 ## 🏗 How It Works
 ### **Main Components**
 1. **BossList Class** → Manages multiple lists.
 2. **List Class** → Handles items within a single list.
 3. **getInput Module** → Ensures valid user input.
+4. **fileIO Module** → Handles JSON save/load operations.
 
 ### **Usage**
 - **Add a List** → Enter a name when prompted.
 - **Remove a List** → Choose an existing list to delete.
 - **Add/Remove Items** → Select a list and modify its contents.
 - **View Lists** → Display available lists and their items.
+- **Search Items** → Lookup an item across all lists.
+- **Save & Load** → Data persists between sessions using JSON.
 
 ## ✨ Current Goals
-- Add basic JSON parsing and saving/loading of BossList.
+- Improve JSON parsing for better error handling.
+- Enhance file handling performance.
 
 ## 🚀 Future Improvements
-- Add lookup to look for an individual element in all lists and show every list containing that.
-- Command-line arguments for quick list management
-- GUI version
+- Add a search feature to find an element in all lists.
+- Implement command-line arguments for quick list management.
+- Develop a GUI version.
 
 ## 📜 License
 This project is open-source and free to use.
