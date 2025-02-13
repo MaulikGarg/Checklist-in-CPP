@@ -26,7 +26,8 @@ class BossList {
  private:
   // list of our Lists: Name + vector of elements
   std::map<std::string, List> m_mainlist;
-
+  //returns true if the list is empty
+  bool isListEmpty();
  public:
   // default constructor, when invoked, asks for a list.
   BossList();
