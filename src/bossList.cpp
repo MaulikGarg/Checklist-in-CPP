@@ -84,7 +84,7 @@ void BossList::showLists() {
 void BossList::getList() {
   // check if bosslist is empty
   if (isListEmpty()) return;
-  std::cout << "Enter the ID of the list which you would like to see: ";
+  std::cout << "Enter the ID of the list which you would like to perform on: ";
   // get the id of the list which they would like to view
   int id = getValidInput::getInt(1, m_mainlist.size());
   // make an iterator (0 based) and move it ahead id-1 times to allign with the
@@ -92,7 +92,7 @@ void BossList::getList() {
   auto iterator = std::next(m_mainlist.begin(), id-1);
   // display the name of the list
   std::cout << "\n===List " << iterator->first << "===\n";
-  iterator->second.printList();
+  iterator->second.showMenu();
 }
 
 void BossList::showMenu() {
@@ -122,7 +122,7 @@ void BossList::showMenu() {
       case options::show:
         showLists();
         break;
-      case options::showList:
+      case options::showListOperations:
         getList();
         break;
     }

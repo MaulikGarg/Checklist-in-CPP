@@ -5,6 +5,10 @@
 #include "getInput.h"
 
 void List::printList() {
+   if(m_elements.empty()){
+      std::cout << "This list has no elements!";
+      return;
+   }
   size_t i = 0;
   for (const auto& element : m_elements) {
     std::cout << ++i << ". " << element << '\n';
@@ -43,9 +47,40 @@ void List::removeElement() {
   // check if the user wishes to terminate
   if (elementID == 0) return;
   // attempt to remove the element from the set
-  auto iterator = std::next(m_elements.begin(), elementID-1);
+  auto iterator = std::next(m_elements.begin(), elementID - 1);
   m_elements.erase(iterator);
   // print success message and the new list
   std::cout << "Element successfully removed.\n";
   this->printList();
+}
+
+void List::showMenu() {
+  // put in a loop for current operations. Break when user is done
+  while (true) {
+    using namespace listOptions;
+    std::cout << "\n=== Available Operations ===\n";
+    // prints all the available options from the namespace
+    for (size_t i{0}; i < std::size(str_options); i++) {
+      std::cout << i << ". " << str_options[i] << '\n';
+    }
+    std::cout
+        << "\nPlease enter the ID of the operation you would like to perform: ";
+
+    // get a response and act on it.
+    switch (static_cast<options>(
+        getValidInput::getInt(options::exit, options::max - 1))) {
+      case options::exit:
+        std::cout << "Exiting the program!\n";
+        return;
+      case options::add:
+        addElement();
+        break;
+      case options::remove:
+        removeElement();
+        break;
+      case options::showElements:
+        printList();
+        break;
+    }
+  }
 }

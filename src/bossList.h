@@ -12,11 +12,11 @@ enum options {
   add,
   remove,
   show,
-  showList,
+  showListOperations,
   max,
 };
 constexpr std::array str_options{"Exit Menu"sv, "Add a list"sv,
-                                 "Remove a list"sv, "Show current lists"sv, "Show a list's elements"sv};
+                                 "Remove a list"sv, "Show current lists"sv, "Perform on a list"sv};
 
 static_assert(max == std::size(str_options));
 }  // namespace bosslistOptions
