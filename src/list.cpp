@@ -1,10 +1,8 @@
 #include "list.h"
+
 #include <iostream>
-bool List::addElement(){
-   std::cout << "called";
-}
 
-bool List::removeElement(){
-   
-}
+#include "getInput.h"
+bool List::addElement() {}
 
+bool List::removeElement() {}
