@@ -28,13 +28,16 @@ int getInt(int min, int max) {
   int input;
   while (true) {
     std::cin >> input;
+    //if cin has failed(ex: a character has been entered), return it to valid state and try again.
     if (!didInpWork()) continue;
+    //if the input is outside the required range, print the min max and try again.
     if (!(min <= input && input <= max)) {
-      ignoreLine();
       std::cout << "Please enter a number between " << min << " and " << max
                 << " .\n> ";
       continue;
     }
+    //to make sure the extra input is cleared properly
+    ignoreLine();
     return input;
   }
 }

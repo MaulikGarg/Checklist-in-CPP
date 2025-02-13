@@ -9,7 +9,7 @@
 
 BossList::BossList() {
   std::cout << "Welcome to the list manager! \n";
-  addList();
+  showMenu();
 }
 
 // adds a list to the bosslist set whilst checking for duplicate names and
@@ -77,7 +77,30 @@ void BossList::showLists() {
 }
 
 void BossList::showMenu() {
-  std::cout << "Here are the available operations, please enter the number of the operation you would like to perform: ";
-  
+  // put in a loop for current operations. Break when user is done
+  while (true) {
+    std::cout
+        << "\n=== Available Operations ===\n"
+        << "0. Exit Menu\n"
+        << "1. Add a list\n"
+        << "2. Remove a list\n"
+        << "3. Show current lists\n"
+        << "Please enter the ID of the operation you would like to perform: ";
 
+    // get a response and act on it.
+    switch (getValidInput::getInt(0, 3)) {
+      case 0:
+        std::cout << "Exiting the program!\n";
+        return;
+      case 1:
+        addList();
+        break;
+      case 2:
+        removeList();
+        break;
+      case 3:
+        showLists();
+        break;
+    }
+    }
 }
