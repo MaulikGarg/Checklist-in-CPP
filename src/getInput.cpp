@@ -56,22 +56,23 @@ std::string getString() {
 }
 
 char getChar(const std::string& allowed) {
-  char ch;
   while (true) {
     std::string input{};
     std::cin >> input;
-    char ch = input[0];
     // check if cin worked, if it did proceed with checking
     if (!didInpWork()) {
-      ignoreLine();
       continue;
     }
-    // checks if the character matches the allowed string
+    //cin success, get the first character as the only input
+    char ch = input[0];
+    //ignore any extra input that may be in the buffer
+    ignoreLine();
+    // checks if the character matches the allowed string or if no requirements
     if (allowed.empty() || allowed.find(ch) != std::string::npos) {
-      ignoreLine();
       return ch;
     }
 
+    //if function reaches here, it must be a disallowed character, print message retry
     std::cout
         << "That was invalid, please enter one of these allowed inputs:  ";
     for (size_t i = 0; i < allowed.size(); ++i) {
