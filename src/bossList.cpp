@@ -8,10 +8,10 @@
 
 BossList::BossList() {
   // ask user for their mainlist file name and make a json object of it
-  std::cout
-      << "Please enter the name of your collection file(type 0 to create new): ";
+  std::cout << "Please enter the name of your collection file(type 0 to create "
+               "new): ";
   std::string filename{getValidInput::getString()};
-  //if the user wishes to load, open the file and load data
+  // if the user wishes to load, open the file and load data
   if (!(filename == "0")) {
     // retrieve data from a file
     fileIO::json data;
@@ -35,7 +35,7 @@ BossList::BossList() {
   showMenu();
 }
 
-//check if the list is empty, if so, say it and return true
+// check if the list is empty, if so, say it and return true
 bool BossList::isListEmpty() {
   if (m_mainlist.empty()) {
     std::cout << "Your collection is empty, try adding some lists!\n";
@@ -67,11 +67,13 @@ void BossList::addList() {
     break;
   }
   std::cout << "\nList " << name << " has been created.\n";
+  // update the sync variable to represent change
+  m_saveSynced = false;
   std::cout << "Would you like to add elements to your new list (y/n): ";
   // stores the response of the user
   char response = getValidInput::getChar(std::string{"ynYN"});
   if (response == 'y' || response == 'Y') {
-    m_mainlist[name].addElement(); //add elements to the newly made list
+    m_mainlist[name].addElement();  // add elements to the newly made list
   }
   return;
 }
@@ -87,12 +89,15 @@ void BossList::removeList() {
     std::cout << "\nOperation cancelled.\n";
     return;
   }
-  //if the list erasure fails, then it must not exist
+  // if the list erasure fails, then it must not exist
   if (!m_mainlist.erase(name)) {
     std::cout << "\nThat list does not exist.\n";
     return;
   }
+  // if we have reached here, the list has been removed.
   std::cout << "\nList " << name << " has been removed.\n";
+  // update sync variable to represent change
+  m_saveSynced = false;
 }
 
 // shows all the lists currently saved to the disk
@@ -107,7 +112,7 @@ void BossList::showLists() {
   }
 }
 
-//retrieves a specific list from a menu
+// retrieves a specific list from a menu
 void BossList::getList() {
   // check if bosslist is empty
   if (isListEmpty()) return;
@@ -119,10 +124,12 @@ void BossList::getList() {
   auto iterator = std::next(m_mainlist.begin(), id - 1);
   // display the name of the list
   std::cout << "\n===List " << iterator->first << "===\n";
-  iterator->second.showMenu();
+  // after coming back, check if the selected list was modified
+  // showMenu returns the list's save status (1 if synced)
+  if (!iterator->second.showMenu()) m_saveSynced = false;
 }
 
-//show main menu for current boss list
+// show main menu for current boss list
 void BossList::showMenu() {
   // put in a loop for current operations. Break when user is done
   while (true) {
@@ -159,15 +166,29 @@ void BossList::showMenu() {
   }
 }
 
-void BossList::saveList(){
+void BossList::saveList() {
+  // if the mainlist is already saved, return
+  if (m_saveSynced) {
+    std::cout << "Your collection is already in sync.\n";
+    return;
+  }
   std::cout << "Name of the file to save to: ";
-  //get the name of the file to write to and save to that file
+  // get the name of the file to write to and save to that file
   std::string filename{getValidInput::getString()};
   fileIO::writeJSON(this->m_mainlist, filename);
+  // file save is successful and mainlist is now in sync!
+  m_saveSynced = true;
   std::cout << "Save Success!\n";
 }
 
-//saves the list before exiting just incase
-BossList::~BossList(){
-  saveList();
+// saves the list before exiting just incase
+BossList::~BossList() {
+  // check if it is an empty collection
+  if (m_mainlist.empty()) {
+    std::cout << "Warning: Empty collection detected, no autosave.\n";
+    return;
+  }
+
+  // if the current mainlist is not in sync with save, save it before exiting
+  if (!m_saveSynced) saveList();
 }

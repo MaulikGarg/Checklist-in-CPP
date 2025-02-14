@@ -26,6 +26,8 @@ static_assert(max == std::size(str_options));
 // main list of all the available lists
 class BossList {
  private:
+ // bool to keep track if any data has been changed since last save, used for saving prompts
+ bool m_saveSynced{true}; 
   // list of our Lists: Name + vector of elements
   std::map<std::string, List> m_mainlist;
   // returns true if the list is empty

@@ -18,7 +18,7 @@ void List::printList() {
 }
 
 // function to add a given element to the list, returns false if the element
-// failed to be added in
+// failed to be added in, Only used when loading a list, does not effect status
 bool List::addElement(const std::string& element) {
   auto result = m_elements.insert(element);  // attempt to add an element
   // check outcome
@@ -41,6 +41,8 @@ void List::addElement() {
       std::cout << element << " already exists in this list!\n";
       continue;
     }
+    //update sync and print message
+    m_saveSync = false;
     std::cout << element << " has been added to the list.\n";
   }
 }
@@ -60,12 +62,15 @@ void List::removeElement() {
   // attempt to remove the element from the set
   auto iterator = std::next(m_elements.begin(), elementID - 1);
   m_elements.erase(iterator);
+  //update the list's save status code to reflect change
+  m_saveSync = false;
   // print success message and the new list
   std::cout << "Element successfully removed.\n";
   printList();
 }
 
-void List::showMenu() {
+//returns the save status of the list save, 1 if synced with save, 0 if not
+bool List::showMenu() {
   // put in a loop for current operations. Break when user is done
   while (true) {
     using namespace listOptions;
@@ -81,7 +86,8 @@ void List::showMenu() {
     switch (static_cast<options>(
         getValidInput::getInt(options::exit, options::max - 1))) {
       case options::exit:
-        return;
+      //return the sync status
+        return m_saveSync;
       case options::add:
         addElement();
         break;
