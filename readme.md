@@ -1,7 +1,7 @@
 # Checklist Organizer
 
 ## 📌 Overview
-This is a **console-based Multi List Manager** built in C++ using **CMake** and **C++**. It allows users to create multiple lists, add or remove items from them, manage them efficiently, and save/load lists using **JSON**.
+This is a **console-based Multi List Manager** built in **C++**. It allows users to create multiple lists, add or remove items from them, manage them efficiently, and save/load lists using **JSON**.
 
 ## 🛠 Features
 - Create and manage multiple lists.
@@ -67,14 +67,14 @@ The .json lists are saved in a **/lists** folder. Please note that it must be in
 - **Search Items** → Lookup an item across all lists.
 - **Save & Load** → Data persists between sessions using JSON.
 
-## ✨ Current Goals
-- Search for an item across all lists.
-- Improve JSON parsing for better error handling.
-- Enhance file handling performance.
+## ✨ TO-DO
+- Add Search for an item across all lists.
+- Load all list files (if any) when a BossList is requested and offer selection (and creating new), automatically ask for new list name when creating new, and store that name globally (see feature below).
+- Add the ability to save to the currrently opened bosslist instead of having to write name.
 
 ## 🚀 Future Improvements
-- Add a search feature to find an element in all lists.
-- Implement command-line arguments for quick list management.
+- Add custom file pathing.
+- Archive deleted list collections and auto delete after a week. Ability to back a list/collection up.
 - Develop a GUI version.
 
 ## 📜 License
