@@ -11,7 +11,7 @@ void readJSON(json& data, const std::string& filename) {
   // check if the file opening failed
   if (!bossfile.is_open()) {
     std::cout << "Failed to open file lists/" << filename
-              << ".json\n Starting with an empty list.\n";
+              << ".json\nStarting with an empty list.\n";
     return;
   }
   // check if the file is empty

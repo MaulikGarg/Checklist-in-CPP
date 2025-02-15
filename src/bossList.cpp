@@ -10,7 +10,7 @@ BossList::BossList() {
   // ask user for their mainlist file name and make a json object of it
   std::cout << "Please enter the name of your collection file(type 0 to create "
                "new): ";
-  std::string filename{getValidInput::getString()};
+  filename = getValidInput::getString();
   // if the user wishes to load, open the file and load data
   if (!(filename == "0")) {
     // retrieve data from a file
@@ -31,6 +31,9 @@ BossList::BossList() {
       // insert the temporary list to the mainlist
       m_mainlist[key] = temporary;
     }
+  } else {
+    //if its a new file
+    std::cout << "New empty list made successfully!\n";
   }
   showMenu();
 }
@@ -172,13 +175,38 @@ void BossList::saveList() {
     std::cout << "Your collection is already in sync.\n";
     return;
   }
+
+  // lambda expression for the saving process
+  auto save{[&]() {
+    fileIO::writeJSON(this->m_mainlist, filename);
+    // file save is successful and mainlist is now in sync!
+    m_saveSynced = true;
+    std::cout << "Save Success!\n";
+  }};
+
+  // if the user created a new list, ask for file name and save, else ask if
+  // they would like to save to previously opened list, 0 indicates new
+  if (filename != "0") {
+    // ask the user if they would like to save to the file that was originally
+    // opened
+    std::cout << "Would you like to save to file " << filename << " ?(y/n)\n> ";
+    char response = getValidInput::getChar(std::string{"ynYN"});
+    // if the user wishes so, jump to saving
+    if (response == 'Y' || response == 'y'){
+      save();
+      return;
+    };
+  }
+  // ask for a valid new file name
   std::cout << "Name of the file to save to: ";
   // get the name of the file to write to and save to that file
-  std::string filename{getValidInput::getString()};
-  fileIO::writeJSON(this->m_mainlist, filename);
-  // file save is successful and mainlist is now in sync!
-  m_saveSynced = true;
-  std::cout << "Save Success!\n";
+  do {
+    filename = getValidInput::getString();
+    // since 0 is our indicator for new lists, it cannot be the file name
+    if (filename == "0") std::cout << "Filename cannot be that. Try again: ";
+  } while (filename == "0");
+
+  save();
 }
 
 // saves the list before exiting just incase
