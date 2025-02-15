@@ -125,8 +125,9 @@ void BossList::getList() {
   // make an iterator (0 based) and move it ahead id-1 times to allign with the
   // intended element of the user
   auto iterator = std::next(m_mainlist.begin(), id - 1);
-  // display the name of the list
-  std::cout << "\n===List " << iterator->first << "===\n";
+  // display the name and contents of the list
+  std::cout << "\n===List: " << iterator->first << "===\n";
+  iterator->second.printList();
   // after coming back, check if the selected list was modified
   // showMenu returns the list's save status (1 if synced)
   if (!iterator->second.showMenu()) m_saveSynced = false;

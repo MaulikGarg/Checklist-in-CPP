@@ -4,12 +4,8 @@
 
 #include "getInput.h"
 
-// print the list and check if empty
+// simply print the list
 void List::printList() {
-  if (m_elements.empty()) {
-    std::cout << "This list has no elements!\n";
-    return;
-  }
   // print the elements in a list format
   size_t i = 0;
   for (const auto& element : m_elements) {
@@ -41,7 +37,7 @@ void List::addElement() {
       std::cout << element << " already exists in this list!\n";
       continue;
     }
-    //update sync and print message
+    // update sync and print message
     m_saveSync = false;
     std::cout << element << " has been added to the list.\n";
   }
@@ -62,14 +58,14 @@ void List::removeElement() {
   // attempt to remove the element from the set
   auto iterator = std::next(m_elements.begin(), elementID - 1);
   m_elements.erase(iterator);
-  //update the list's save status code to reflect change
+  // update the list's save status code to reflect change
   m_saveSync = false;
   // print success message and the new list
   std::cout << "Element successfully removed.\n";
   printList();
 }
 
-//returns the save status of the list save, 1 if synced with save, 0 if not
+// returns the save status of the list save, 1 if synced with save, 0 if not
 bool List::showMenu() {
   // put in a loop for current operations. Break when user is done
   while (true) {
@@ -86,7 +82,7 @@ bool List::showMenu() {
     switch (static_cast<options>(
         getValidInput::getInt(options::exit, options::max - 1))) {
       case options::exit:
-      //return the sync status
+        // return the sync status
         return m_saveSync;
       case options::add:
         addElement();
@@ -95,7 +91,8 @@ bool List::showMenu() {
         removeElement();
         break;
       case options::showElements:
-        printList();
+        if (m_elements.empty()) std::cout << "This list has no elements!\n";
+        else printList();
         break;
     }
   }
