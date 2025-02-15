@@ -32,7 +32,7 @@ BossList::BossList() {
       m_mainlist[key] = temporary;
     }
   } else {
-    //if its a new file
+    // if its a new file
     std::cout << "New empty list made successfully!\n";
   }
   showMenu();
@@ -169,21 +169,8 @@ void BossList::showMenu() {
   }
 }
 
-void BossList::saveList() {
-  // if the mainlist is already saved, return
-  if (m_saveSynced) {
-    std::cout << "Your collection is already in sync.\n";
-    return;
-  }
-
-  // lambda expression for the saving process
-  auto save{[&]() {
-    fileIO::writeJSON(this->m_mainlist, filename);
-    // file save is successful and mainlist is now in sync!
-    m_saveSynced = true;
-    std::cout << "Save Success!\n";
-  }};
-
+// returns the name of the file the user wishes to save to.
+std::string BossList::getSaveName() {
   // if the user created a new list, ask for file name and save, else ask if
   // they would like to save to previously opened list, 0 indicates new
   if (filename != "0") {
@@ -192,9 +179,8 @@ void BossList::saveList() {
     std::cout << "Would you like to save to file " << filename << " ?(y/n)\n> ";
     char response = getValidInput::getChar(std::string{"ynYN"});
     // if the user wishes so, jump to saving
-    if (response == 'Y' || response == 'y'){
-      save();
-      return;
+    if (response == 'Y' || response == 'y') {
+      return filename;
     };
   }
   // ask for a valid new file name
@@ -205,8 +191,21 @@ void BossList::saveList() {
     // since 0 is our indicator for new lists, it cannot be the file name
     if (filename == "0") std::cout << "Filename cannot be that. Try again: ";
   } while (filename == "0");
+  return filename;
+}
 
-  save();
+void BossList::saveList() {
+  // if the mainlist is already saved, return
+  if (m_saveSynced) {
+    std::cout << "Your collection is already in sync.\n";
+    return;
+  }
+
+  //get the name of the file to save to and save.
+  fileIO::writeJSON(this->m_mainlist, getSaveName());
+  // file save is successful and mainlist is now in sync!
+  m_saveSynced = true;
+  std::cout << "Save Success!\n";
 }
 
 // saves the list before exiting just incase

@@ -35,6 +35,8 @@ class BossList {
   std::map<std::string, List> m_mainlist;
   // returns true if the list is empty
   bool isListEmpty();
+  //returns the name of file the user wishes to save in.
+  std::string getSaveName();
 
  public:
   // default constructor, when invoked, asks for a file name and opens main
