@@ -30,7 +30,7 @@ void List::addElement() {
   while (true) {
     std::cout << "Enter the element(Type 0 to eliminate operation): ";
     // get the element to the input
-    std::string element{getValidInput::getString()};
+    std::string element{getValidInput::getString(25)};
     // check if the user wishes to terminte
     if (element == "0") return;
     // attempt to insert it into the set of elements, store the resulting pair

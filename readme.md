@@ -70,7 +70,6 @@ The .json lists are saved in a **/lists** folder. Please note that it must be in
 ## ✨ TO-DO
 - Add Search for an item across all lists.
 - Load all list files (if any) when a BossList is requested and offer selection (and creating new), automatically ask for new list name when creating new, and store that name globally (see feature below).
-- Add the ability to save to the currrently opened bosslist instead of having to write name.
 
 ## 🚀 Future Improvements
 - Add custom file pathing.

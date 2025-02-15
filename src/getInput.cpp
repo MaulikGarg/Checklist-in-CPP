@@ -4,7 +4,8 @@
 #include <limits>
 #include <string>
 
-namespace getValidInput {
+//used by the valid input functions
+namespace functionalities {
 void ignoreLine() {
   // ignores any extra character which may be in the input
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -22,7 +23,9 @@ bool didInpWork() {
   }
   return true;
 }
+}  // namespace functionalities
 
+namespace getValidInput {
 // get an integer from a range(inclusive) and verify if valid input
 int getInt(int min, int max) {
   int input;
@@ -30,7 +33,7 @@ int getInt(int min, int max) {
     std::cin >> input;
     // if cin has failed(ex: a character has been entered), return it to valid
     // state and try again.
-    if (!didInpWork()) continue;
+    if (!functionalities::didInpWork()) continue;
     // if the input is outside the required range, print the min max and try
     // again.
     if (!(min <= input && input <= max)) {
@@ -39,19 +42,31 @@ int getInt(int min, int max) {
       continue;
     }
     // to make sure the extra input is cleared properly
-    ignoreLine();
+    functionalities::ignoreLine();
     return input;
   }
 }
 
-// gets a string line and returns it
-std::string getString() {
+// gets a string line of a maximum length
+std::string getString(int maxLength) {
   std::string str{};
   while (true) {
     // gets a full whitespaced string
     std::getline(std::cin >> std::ws, str);
+
+    //check if input failed, if so, try again.
+    if (!functionalities::didInpWork()) {
+      functionalities::ignoreLine();  // Clear buffer
+      continue;
+    }
+
+    //check if the line exceeds maxlength
+    if(str.length() > maxLength){
+      std::cout << "Maximum allowed length is " << maxLength << " please try again.\n> ";
+      continue;
+    }
     // if input worked, return it safely
-    if (didInpWork()) return str;
+    if (functionalities::didInpWork()) return str;
   }
 }
 
@@ -60,19 +75,20 @@ char getChar(const std::string& allowed) {
     std::string input{};
     std::cin >> input;
     // check if cin worked, if it did proceed with checking
-    if (!didInpWork()) {
+    if (!functionalities::didInpWork()) {
       continue;
     }
-    //cin success, get the first character as the only input
+    // cin success, get the first character as the only input
     char ch = input[0];
-    //ignore any extra input that may be in the buffer
-    ignoreLine();
+    // ignore any extra input that may be in the buffer
+    functionalities::ignoreLine();
     // checks if the character matches the allowed string or if no requirements
     if (allowed.empty() || allowed.find(ch) != std::string::npos) {
       return ch;
     }
 
-    //if function reaches here, it must be a disallowed character, print message retry
+    // if function reaches here, it must be a disallowed character, print
+    // message retry
     std::cout
         << "That was invalid, please enter one of these allowed inputs:  ";
     for (size_t i = 0; i < allowed.size(); ++i) {

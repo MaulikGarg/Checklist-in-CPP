@@ -10,7 +10,7 @@ BossList::BossList() {
   // ask user for their mainlist file name and make a json object of it
   std::cout << "Please enter the name of your collection file(type 0 to create "
                "new): ";
-  filename = getValidInput::getString();
+  filename = getValidInput::getString(25);
   // if the user wishes to load, open the file and load data
   if (!(filename == "0")) {
     // retrieve data from a file
@@ -55,7 +55,7 @@ void BossList::addList() {
   std::string name{};
   // loop until we get a valid name for our new list
   while (true) {
-    name = getValidInput::getString();
+    name = getValidInput::getString(25);
     // checks if the user wishes to cancel the operation
     if (name == "0") {
       std::cout << "operation cancelled.\n";
@@ -86,7 +86,7 @@ void BossList::removeList() {
   if (isListEmpty()) return;
   std::cout << "\nPlease enter the name of the list you would like to "
                "remove(type 0 to cancel operation): ";
-  std::string name{getValidInput::getString()};
+  std::string name{getValidInput::getString(25)};
   // check if the user wishes to cancel operation
   if (name == "0") {
     std::cout << "\nOperation cancelled.\n";
@@ -201,7 +201,7 @@ void BossList::saveList() {
   std::cout << "Name of the file to save to: ";
   // get the name of the file to write to and save to that file
   do {
-    filename = getValidInput::getString();
+    filename = getValidInput::getString(25);
     // since 0 is our indicator for new lists, it cannot be the file name
     if (filename == "0") std::cout << "Filename cannot be that. Try again: ";
   } while (filename == "0");

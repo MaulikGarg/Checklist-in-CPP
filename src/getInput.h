@@ -4,16 +4,20 @@
 #include <string>
 #include <vector>
 
-namespace getValidInput {
+//only used by input functions implicitly
+namespace functionalities {
 // clears extra input that may be in the buffer
 void ignoreLine();
 // returns true if cin succeeded
 bool didInpWork();
+}  // namespace functionalities
+
+namespace getValidInput {
 // gets a valid integer from a range(optional)
 int getInt(int min = std::numeric_limits<int>::min(),
            int max = std::numeric_limits<int>::max());
-// gets a valid string and returns it
-std::string getString();
+// gets a valid string of maximum size and returns it
+std::string getString(int maxCharacters = std::numeric_limits<int>::max());
 // gets a valid character, can optionally except a pool to pick from
 char getChar(const std::string& allowed = {});
 }  // namespace getValidInput
