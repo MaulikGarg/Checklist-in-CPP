@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-//only used by input functions implicitly
+// only used by input functions implicitly
 namespace functionalities {
 // clears extra input that may be in the buffer
 void ignoreLine();
@@ -20,5 +20,7 @@ int getInt(int min = std::numeric_limits<int>::min(),
 std::string getString(int maxCharacters = std::numeric_limits<int>::max());
 // gets a valid character, can optionally except a pool to pick from
 char getChar(const std::string& allowed = {});
+// returns true if the given string is only alphanumeric
+bool alphanumeric(const std::string& input);
 }  // namespace getValidInput
 #endif

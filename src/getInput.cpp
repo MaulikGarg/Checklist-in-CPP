@@ -1,10 +1,9 @@
 #include "getInput.h"
 
 #include <iostream>
-#include <limits>
-#include <string>
+#include <algorithm>
 
-//used by the valid input functions
+// used by the valid input functions
 namespace functionalities {
 void ignoreLine() {
   // ignores any extra character which may be in the input
@@ -54,15 +53,16 @@ std::string getString(int maxLength) {
     // gets a full whitespaced string
     std::getline(std::cin >> std::ws, str);
 
-    //check if input failed, if so, try again.
+    // check if input failed, if so, try again.
     if (!functionalities::didInpWork()) {
       functionalities::ignoreLine();  // Clear buffer
       continue;
     }
 
-    //check if the line exceeds maxlength
-    if(str.length() > maxLength){
-      std::cout << "Maximum allowed length is " << maxLength << " please try again.\n> ";
+    // check if the line exceeds maxlength
+    if (str.length() > maxLength) {
+      std::cout << "Maximum allowed length is " << maxLength
+                << " please try again.\n> ";
       continue;
     }
     // if input worked, return it safely
@@ -97,5 +97,13 @@ char getChar(const std::string& allowed) {
     }
     std::cout << "\n>";
   }
+}
+
+//returns true if the input is only alpha numeric
+bool alphanumeric(const std::string& input) {
+  auto it = std::find_if_not(std::begin(input), std::end(input),
+                             [](unsigned char c) { return std::isalnum(c); });
+
+  return it == std::end(input);
 }
 }  // namespace getValidInput

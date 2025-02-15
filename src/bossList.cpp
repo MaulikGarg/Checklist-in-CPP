@@ -11,6 +11,11 @@ BossList::BossList() {
   std::cout << "Please enter the name of your collection file(type 0 to create "
                "new): ";
   filename = getValidInput::getString(25);
+  // if the user entered a non alphanumeric(disallowed filename, start new.)
+  if (!getValidInput::alphanumeric(filename)) {
+    std::cout << "Invalid input file name, creating new collection.\n";
+    filename = "0";
+  }
   // if the user wishes to load, open the file and load data
   if (!(filename == "0")) {
     // retrieve data from a file
@@ -187,22 +192,26 @@ std::string BossList::getSaveName() {
   // ask for a valid new file name
   std::cout << "Name of the file to save to: ";
   // get the name of the file to write to and save to that file
-  do {
+  while (true){
     filename = getValidInput::getString(25);
     // since 0 is our indicator for new lists, it cannot be the file name
-    if (filename == "0") std::cout << "Filename cannot be that. Try again: ";
-  } while (filename == "0");
+    if (filename == "0" || !getValidInput::alphanumeric(filename)) {
+      std::cout << "Filename cannot be that. Try again: ";
+    } else
+      break;
+    // keep the loop going while the input is 0 or non alphanumeric
+  };
   return filename;
 }
 
 void BossList::saveList() {
   // if the mainlist is already saved, return
   if (m_saveSynced) {
-    std::cout << "Your collection is already in sync.\n";
+    std::cout << "No changes to save. Your list is up to date.\n";
     return;
   }
 
-  //get the name of the file to save to and save.
+  // get the name of the file to save to and save.
   fileIO::writeJSON(this->m_mainlist, getSaveName());
   // file save is successful and mainlist is now in sync!
   m_saveSynced = true;
