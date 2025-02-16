@@ -45,8 +45,8 @@ cmake --build .
 
 ### **3. Run the Program**
 ```sh
-./list  # On Linux/macOS
-list.exe  # On Windows
+./ListManager  # On Linux/macOS
+ListManager.exe  # On Windows
 ```
 
 ### **Important Note**
