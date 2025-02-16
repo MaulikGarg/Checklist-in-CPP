@@ -14,19 +14,21 @@ This is a **console-based Multi List Manager** built in **C++**. It allows users
 ```
 Checklist/
 │── lib/
-│   ├── json.hpp       # API for handling JSON
+│   ├── json.hpp                      # API for handling JSON
 │── src/
-│   ├── bossList.cpp  # Manages multiple lists
-│   ├── bossList.h    # BossList class definition
-│   ├── list.cpp      # Manages individual list operations
-│   ├── list.h        # List class definition
-│   ├── getInput.cpp  # Handles user input
-│   ├── getInput.h    # Input validation functions
-│   ├── fileIO.cpp    # Handles file operations (JSON read/write)
-│   ├── fileIO.h      # File I/O functions
-│   ├── main.cpp      # Entry point of the program
-│── CMakeLists.txt    # CMake build configuration
-│── README.md         # Project documentation
+│   ├── bossList.cpp                  # Manages multiple lists
+│   ├── bossList.h                    # BossList class definition
+│   ├── list.cpp                      # Manages individual list operations
+│   ├── list.h                        # List class definition
+│   ├── getInput.cpp                  # Handles user input
+│   ├── getInput.h                    # Input validation functions
+│   ├── fileIO.cpp                    # Handles file operations (JSON read/write)
+│   ├── fileIO.h                      # File I/O functions
+│   ├── main.cpp                      # Entry point of the program
+│── tests/
+│   ├── getInputTest.cpp              # Tests the getInput Module
+│── CMakeLists.txt                    # CMake build configuration
+│── README.md                         # Project documentation
 ```
 
 ## 🏗 Setup & Build
@@ -69,7 +71,8 @@ The .json lists are saved in a **/lists** folder. Please note that it must be in
 
 ## ✨ TO-DO
 - Add Search for an item across all lists.
-- Load all list files (if any) when a BossList is requested and offer selection (and creating new), automatically ask for new list name when creating new, and store that name globally (see feature below).
+- Load all list files (if any) when a BossList is requested and offer selection (and creating new), automatically ask for new list name when creating new.
+- Add the ability to rename a list/file from the main menu
 
 ## 🚀 Future Improvements
 - Add custom file pathing.
