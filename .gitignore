@@ -1,4 +1,3 @@
-# CMake build directory
 /build/
-#Dev test directory
 dev/
+CMakePresets.txt

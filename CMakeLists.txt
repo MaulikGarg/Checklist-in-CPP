@@ -8,33 +8,16 @@ project(ListManager VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Look for Catch2 on the system
-find_package(Catch2 QUIET)
-if(Catch2_FOUND)
-    message(STATUS "Catch2 found, enabling and running tests...")
-
-    # set sources for all the tests
-    set(TESTS
-        tests/getInputTest.cpp
-    )
-
-    # add catch 2 executable and link libs
-    add_executable(tests ${TESTS})
-    target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
-else()
-    message(WARNING "Catch2 not found, skipping tests.")
-endif()
-
 # set sources for all our code files
 set(SOURCES
     src/bossList.cpp
-    src/getInput.cpp
+    src/getInput.cpp     
     src/main.cpp
     src/list.cpp
     src/fileIO.cpp
 )
 
-# set header location
+# set header locations
 set(HEADERS
     src/bossList.h
     src/getInput.h
@@ -43,8 +26,31 @@ set(HEADERS
     lib/json.hpp
 )
 
-#create main executable
-add_executable("${PROJECT_NAME}" ${SOURCES})
+# Create a static library with your source files
+add_library(ListManagerLib ${SOURCES})
+target_include_directories(ListManagerLib PRIVATE src lib)
 
-# Include directories
-target_include_directories("${PROJECT_NAME}" PRIVATE src lib)
+# Create main executable and link against the library
+add_executable(${PROJECT_NAME} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} PRIVATE ListManagerLib)
+
+# Look for Catch2 on the system
+find_package(Catch2 QUIET)
+if(Catch2_FOUND)
+    message(STATUS "Catch2 found, enabling and running tests...")
+
+    # Set sources for all the tests
+    set(TESTS
+        tests/getInputTest.cpp
+    )
+
+    # Add the test executable and link it with Catch2 and your library
+    add_executable(tests ${TESTS})
+    target_link_libraries(tests PRIVATE Catch2::Catch2WithMain ListManagerLib)
+
+    include(CTest)
+    include(Catch)
+    catch_discover_tests(tests)
+else()
+    message(WARNING "Catch2 not found, skipping tests.")
+endif()
