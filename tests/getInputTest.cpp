@@ -48,7 +48,7 @@ std::string redirectCin(const std::string& testedString,
 }
 
 // didInpWork function
-TEST_CASE("Input state boolean"){
+TEST_CASE("Input state boolean") {
   // reset cin to fail for each section
   std::cin.setstate(std::ios_base::failbit);
   // checks cin for fail state and if cin manages to catch and
@@ -78,11 +78,9 @@ TEST_CASE("Integer input ") {
         // pass in the invalid values as string and the require condition
         redirectCin("9999999999\n\n@$#\nbbb\n" + std::to_string(num),
                     [=]() { REQUIRE(getInt() == num); })};
-    REQUIRE(output ==
-            // since we give 3 invalid clauses, it should give error 3 times
-            "That was invalid input. Please try again.\n>"
-            "That was invalid input. Please try again.\n>"
-            "That was invalid input. Please try again.\n>");
+    std::string errorMsg{"That was invalid input. Please try again.\n>"};
+    // since we give 3 invalid clauses, it should give error 3 times
+    REQUIRE(output == errorMsg + errorMsg + errorMsg);
   }
 
   // test for values outside the given range
@@ -107,13 +105,13 @@ TEST_CASE("Integer input ") {
                      std::to_string(valid) + "\n"),
                     [=]() { REQUIRE(getInt(minima, maxima) == valid); })};
 
-    std::string expected{
-        // since we enter minimum and maximum, wrong input warning should appear
-        // twice
-        "Please enter a number between " + std::to_string(minima) + " and " +
-        std::to_string(maxima) + " .\n> " + "Please enter a number between " +
-        std::to_string(minima) + " and " + std::to_string(maxima) + " .\n> "};
-    REQUIRE(output == expected);
+    // the basic error message
+    std::string errorMsg{"Please enter a number between " +
+                         std::to_string(minima) + " and " +
+                         std::to_string(maxima) + " .\n> "};
+    // since we provide 2 wrong inputs (min and max), error message should
+    // appear twice
+    REQUIRE(output == errorMsg + errorMsg);
 
     // now check by only giving the correct input
     output = redirectCin((std::to_string(valid) + "\n"),
