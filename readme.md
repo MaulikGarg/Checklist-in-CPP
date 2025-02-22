@@ -70,6 +70,7 @@ The .json lists are saved in a **/lists** folder. Please note that it must be in
 - **Save & Load** → Data persists between sessions using JSON.
 
 ## ✨ TO-DO
+- Enforce semantically correct arguments in getInput module
 - Add Search for an item across all lists.
 - Load all list files (if any) when a BossList is requested and offer selection (and creating new), automatically ask for new list name when creating new.
 - Add the ability to rename a list/file from the main menu
