@@ -12,7 +12,7 @@ void ignoreLine() {
 
 // returns a bool for whether normal cin worked, gives error statement and
 // clears buffer if not
-bool didInpWork() {
+bool didInpWork(bool ignoreBuffer) {
   // if cin failed, return it to safe state and return false
   if (!std::cin) {
     std::cin.clear();
@@ -20,6 +20,7 @@ bool didInpWork() {
     std::cout << "That was invalid input. Please try again.\n>";
     return false;
   }
+  if(ignoreBuffer)ignoreLine();
   return true;
 }
 }  // namespace functionalities
@@ -40,8 +41,6 @@ int getInt(int min, int max) {
                 << " .\n> ";
       continue;
     }
-    // to make sure the extra input is cleared properly
-    functionalities::ignoreLine();
     return input;
   }
 }
@@ -54,8 +53,7 @@ std::string getString(int maxLength) {
     std::getline(std::cin >> std::ws, str);
 
     // check if input failed, if so, try again.
-    if (!functionalities::didInpWork()) {
-      functionalities::ignoreLine();  // Clear buffer
+    if (!functionalities::didInpWork(false)) {
       continue;
     }
 
@@ -65,8 +63,7 @@ std::string getString(int maxLength) {
                 << " please try again.\n> ";
       continue;
     }
-    // if input worked, return it safely
-    if (functionalities::didInpWork()) return str;
+    return str;
   }
 }
 
@@ -80,8 +77,6 @@ char getChar(const std::string& allowed) {
     }
     // cin success, get the first character as the only input
     char ch = input[0];
-    // ignore any extra input that may be in the buffer
-    functionalities::ignoreLine();
     // checks if the character matches the allowed string or if no requirements
     if (allowed.empty() || allowed.find(ch) != std::string::npos) {
       return ch;

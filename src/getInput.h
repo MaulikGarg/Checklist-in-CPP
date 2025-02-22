@@ -8,8 +8,9 @@
 namespace functionalities {
 // clears extra input that may be in the buffer
 void ignoreLine();
-// returns true if cin succeeded
-bool didInpWork();
+// returns true if cin succeeded. ignoreBuffer if the function should clear
+// buffer even if input succeeds
+bool didInpWork(bool ignoreBuffer = true);
 }  // namespace functionalities
 
 namespace getValidInput {
