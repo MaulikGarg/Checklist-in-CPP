@@ -85,17 +85,16 @@ TEST_CASE("Integer input ") {
 
   // test for values outside the given range
   SECTION("Input is outside allowed range.") {
-    // generate a random minima + 1 from numeric min to half of numeric max-1
+    // generate a random minima + 1 from numeric min to -1
     int minima = GENERATE(take(
-        3, random(constants::numeric_min + 1, constants::numeric_max / 2 - 1)));
-    // set numeric max /2 as an always valid input
-    int valid = constants::numeric_max / 2;
-    // generate a random maxima from numeric half of numeric maxima+1 to numeric
-    // maxima - 1
+        3, random(constants::numeric_min + 1, -1)));
+    // 0 is always valid as the middle point of the range.
+    int valid {0};
+    // generate a random maxima from 1 to maxima -1
     int maxima = GENERATE(take(
-        3, random(constants::numeric_max / 2 + 1, constants::numeric_max - 1)));
+        1, random(1, constants::numeric_max - 1)));
 
-    // since allowed range is [lower,upper], we check out of bounds by giving
+    // since allowed range is (lower,upper), we check out of bounds by giving
     // minmum and maximum
 
     // the input should fail twice and then accept once
@@ -118,4 +117,9 @@ TEST_CASE("Integer input ") {
                          [=]() { REQUIRE(getInt(minima, maxima) == valid); });
     REQUIRE(output == "");
   }
+}
+
+//getString function
+TEST_CASE("String extraction"){
+  
 }
