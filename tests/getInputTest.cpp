@@ -73,7 +73,7 @@ TEST_CASE("Integer input ") {
   SECTION("Invalid characters are input") {
     // get some random numbers
     auto num = GENERATE(
-        take(1, random(constants::numeric_min, constants::numeric_max)));
+        take(3, random(constants::numeric_min, constants::numeric_max)));
     std::string output{
         // pass in the invalid values as string and the require condition
         redirectCin("9999999999\n\n@$#\nbbb\n" + std::to_string(num),
@@ -115,6 +115,16 @@ TEST_CASE("Integer input ") {
                          [=]() { REQUIRE(getInt(minima, maxima) == valid); });
     REQUIRE(output == "");
   }
+
+  // buffer overflow occurs
+  SECTION("check for extra input for int getting") {
+    // get some random numbers
+    auto num = GENERATE(
+        take(3, random(constants::numeric_min, constants::numeric_max)));
+        // pass in the int and extra input
+        redirectCin(std::to_string(num) + "abcde", [=]() { REQUIRE(getInt() == num); });
+  }
+  
 }
 
 // getString function
@@ -129,9 +139,14 @@ TEST_CASE("String extraction") {
   // now check if overlength works
   std::string output{redirectCin("\n\ntests\ntest",
                                  []() { REQUIRE(getString(4) == "test"); })};
-  
-  //check for the error message                               
-  REQUIRE(output == "Maximum allowed length is 4 please try again.\n> ");                               
+
+  // check for the error message
+  REQUIRE(output == "Maximum allowed length is 4 please try again.\n> ");
 }
 
-
+// getChar function
+TEST_CASE("Single character extraction") {
+  /*---------------------------------------------------------------------
+  eof and similar input failure cases are handled and are not tested here
+  -----------------------------------------------------------------------*/
+}
