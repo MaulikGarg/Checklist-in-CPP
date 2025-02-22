@@ -60,7 +60,7 @@ std::string getString(int maxLength) {
     }
 
     // check if the line exceeds maxlength
-    if (str.length() > maxLength) {
+    if (static_cast<int>(str.length()) > maxLength) {
       std::cout << "Maximum allowed length is " << maxLength
                 << " please try again.\n> ";
       continue;

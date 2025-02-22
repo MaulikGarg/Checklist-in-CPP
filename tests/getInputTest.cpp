@@ -86,13 +86,11 @@ TEST_CASE("Integer input ") {
   // test for values outside the given range
   SECTION("Input is outside allowed range.") {
     // generate a random minima + 1 from numeric min to -1
-    int minima = GENERATE(take(
-        3, random(constants::numeric_min + 1, -1)));
+    int minima = GENERATE(take(3, random(constants::numeric_min + 1, -1)));
     // 0 is always valid as the middle point of the range.
-    int valid {0};
+    int valid{0};
     // generate a random maxima from 1 to maxima -1
-    int maxima = GENERATE(take(
-        1, random(1, constants::numeric_max - 1)));
+    int maxima = GENERATE(take(1, random(1, constants::numeric_max - 1)));
 
     // since allowed range is (lower,upper), we check out of bounds by giving
     // minmum and maximum
@@ -119,7 +117,21 @@ TEST_CASE("Integer input ") {
   }
 }
 
-//getString function
-TEST_CASE("String extraction"){
+// getString function
+TEST_CASE("String extraction") {
+  /*---------------------------------------------------------------------
+  eof and similar input failure cases are handled and are not tested here
+  -----------------------------------------------------------------------*/
+
+  // first check with no specified length
+  redirectCin("\n\n\ntest", []() { REQUIRE(getString() == "test"); });
+
+  // now check if overlength works
+  std::string output{redirectCin("\n\ntests\ntest",
+                                 []() { REQUIRE(getString(4) == "test"); })};
   
+  //check for the error message                               
+  REQUIRE(output == "Maximum allowed length is 4 please try again.\n> ");                               
 }
+
+
