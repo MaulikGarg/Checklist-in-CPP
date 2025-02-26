@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Force static linking
-set(CMAKE_EXE_LINKER_FLAGS "-static")
+# set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 # set sources for all our code files
 set(LIB_SOURCES
