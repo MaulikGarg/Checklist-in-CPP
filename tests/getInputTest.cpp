@@ -22,7 +22,7 @@ using void_lambda = std::function<void()>;
 // returns any cout that may be printed in the tested function
 std::string getCout(const void_lambda& func) {
   // make an output stream
-  std::ostringstream output{};
+  std::stringstream output{};
   // save current buffer pointer so we can redirect cout back to it later
   auto coutBuffer = std::cout.rdbuf();
   // all coutput goes into the stream
@@ -39,7 +39,7 @@ std::string getCout(const void_lambda& func) {
 std::string redirectCin(const std::string& testedString,
                         const void_lambda& func) {
   // make a string stream to replace cin with
-  std::istringstream ios{testedString};
+  std::stringstream ios{testedString};
   // // store cin's current buffer pointer so we can return later
   auto cinBuffer = std::cin.rdbuf();
   std::cin.rdbuf(ios.rdbuf());  // redirect cin
