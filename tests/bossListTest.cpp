@@ -13,7 +13,7 @@ using void_lambda = std::function<void()>;
 
 class bufferCapture {
  private:
- // hold the initial buffer pointers
+  // hold the initial buffer pointers
   std::streambuf* inputBackup;
   std::streambuf* outputBackup;
   // custom input for cin replacement
@@ -43,25 +43,34 @@ class bufferCapture {
   std::string getOutput() { return outputStream.str(); }
 };
 
-/* ---------- constructor tests ------------------- */
-
-TEST_CASE("Empty list name test") {
-
-  bufferCapture b1{"0"};
-
-  BossList testlist{true};  // set testing flag to true
-
+TEST_CASE("BossList constructor tests") {
   // initial constructor greeting
   std::string expected_output{
       "Please enter the name of your collection file(type 0 to create "
       "new): "};
 
+  SECTION("Empty list name test") {
+    bufferCapture b1{"0\n"};
 
-  // new list should be made when 0 is input
-  expected_output += "New empty list made successfully!\n"s;
+    BossList testlist{true};  // set testing flag to true
 
-  REQUIRE(expected_output == b1.getOutput());
+    // new list should be made when 0 is input
+    expected_output += "New empty list made successfully!\n"s;
 
+    REQUIRE(expected_output == b1.getOutput());
+  }
+
+  SECTION("Non alphanumeric input file name") {
+    // invalid file name
+    bufferCapture b1{"++++++\n"};
+
+    BossList testlist{true};  // set test list
+
+    // should make new list and sets file name to 0
+    expected_output +=
+        "Invalid input file name, creating new collection.\nNew empty list "
+        "made successfully!\n";
+
+    REQUIRE(expected_output == b1.getOutput());
+  }
 }
-
-TEST_CASE("Non alphanumeric input file name") {}
