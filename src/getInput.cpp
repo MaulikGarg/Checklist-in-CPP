@@ -85,7 +85,7 @@ char getChar(const std::string& allowed) {
     // if function reaches here, it must be a disallowed character, print
     // message retry
     std::cout
-        << "That was invalid, please enter one of these allowed inputs:  ";
+        << "That was invalid, please enter one of these allowed inputs: ";
     for (size_t i = 0; i < allowed.size(); ++i) {
       std::cout << allowed[i];
       if (i != allowed.size() - 1) std::cout << ", ";

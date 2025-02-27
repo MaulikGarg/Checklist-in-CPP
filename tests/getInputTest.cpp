@@ -6,6 +6,8 @@
 #include <sstream>
 
 #include "../src/getInput.h"
+// use for string literals
+using namespace std::string_literals;
 
 namespace constants {
 constexpr int numeric_min = std::numeric_limits<int>::min();
@@ -121,10 +123,10 @@ TEST_CASE("Integer input ") {
     // get some random numbers
     auto num = GENERATE(
         take(3, random(constants::numeric_min, constants::numeric_max)));
-        // pass in the int and extra input
-        redirectCin(std::to_string(num) + "abcde", [=]() { REQUIRE(getInt() == num); });
+    // pass in the int and extra input
+    redirectCin(std::to_string(num) + "abcde",
+                [=]() { REQUIRE(getInt() == num); });
   }
-  
 }
 
 // getString function
@@ -149,4 +151,32 @@ TEST_CASE("Single character extraction") {
   /*---------------------------------------------------------------------
   eof and similar input failure cases are handled and are not tested here
   -----------------------------------------------------------------------*/
+
+  // the characters which can be input, vowels for testing(not y)
+  std::string allowedCharacters{"aeiou"};
+  //character the function is supposed to output
+  char expecetedChar{'e'};
+
+  SECTION("Not from valid input test") {
+    // all the different invalid inputs to be tested
+    std::string testedString{"\n"s + "9999\n"s + "qwrty\n"s + "e\n"s};
+    //the error message capture
+    std::string output{redirectCin(testedString, [&]() {
+      REQUIRE(getChar(allowedCharacters) == expecetedChar);
+    })};
+    //the error message
+    std::string errorMsg {"That was invalid, please enter one of these allowed inputs: a, e, i, o, u\n>"};
+    //check if we get 2 invalid messages
+    REQUIRE(output == errorMsg+errorMsg);
+  }
+
+  SECTION("Buffer overflow Test"){
+    //overflow with valid elements
+    std::string testedString {"eaiou\n"};
+    std::string output{redirectCin(testedString, [&]() {
+      REQUIRE(getChar(allowedCharacters) == expecetedChar);
+    })};
+    //check if there was no error message
+    REQUIRE(output == "");
+  }
 }
