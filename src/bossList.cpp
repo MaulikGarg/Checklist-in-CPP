@@ -6,6 +6,48 @@
 #include "getInput.h"
 #include "list.h"
 
+/*---------- PRIVATE FUNCTIONS -------------------------*/
+
+// check if the list is empty, if so, say it and return true
+bool BossList::isListEmpty() {
+  if (m_mainlist.empty()) {
+    std::cout << "Your collection is empty, try adding some lists!\n";
+    return true;
+  }
+  return false;
+}
+
+// returns the name of the file the user wishes to save to.
+std::string BossList::getSaveName() {
+  // if the user created a new list, ask for file name and save, else ask if
+  // they would like to save to previously opened list, 0 indicates new
+  if (filename != "0") {
+    // ask the user if they would like to save to the file that was originally
+    // opened
+    std::cout << "Would you like to save to file " << filename << " ?(y/n)\n> ";
+    char response = getValidInput::getChar(std::string{"ynYN"});
+    // if the user wishes so, jump to saving
+    if (response == 'Y' || response == 'y') {
+      return filename;
+    };
+  }
+  // ask for a valid new file name
+  std::cout << "Name of the file to save to: ";
+  // get the name of the file to write to and save to that file
+  while (true){
+    filename = getValidInput::getString(25);
+    // since 0 is our indicator for new lists, it cannot be the file name
+    if (filename == "0" || !getValidInput::alphanumeric(filename)) {
+      std::cout << "Filename cannot be that. Try again: ";
+    } else
+      break;
+    // keep the loop going while the input is 0 or non alphanumeric
+  };
+  return filename;
+}
+
+/*----------- PUBLIC FUNCTIONS -------------------------*/
+
 BossList::BossList() {
   // ask user for their mainlist file name and make a json object of it
   std::cout << "Please enter the name of your collection file(type 0 to create "
@@ -43,13 +85,17 @@ BossList::BossList() {
   showMenu();
 }
 
-// check if the list is empty, if so, say it and return true
-bool BossList::isListEmpty() {
+
+// saves the list before exiting just incase
+BossList::~BossList() {
+  // check if it is an empty collection
   if (m_mainlist.empty()) {
-    std::cout << "Your collection is empty, try adding some lists!\n";
-    return true;
+    std::cout << "Warning: Empty collection detected, no autosave.\n";
+    return;
   }
-  return false;
+
+  // if the current mainlist is not in sync with save, save it before exiting
+  if (!m_saveSynced) saveList();
 }
 
 // adds a list to the bosslist set whilst checking for duplicate names and
@@ -120,24 +166,6 @@ void BossList::showLists() {
   }
 }
 
-// retrieves a specific list from a menu
-void BossList::getList() {
-  // check if bosslist is empty
-  if (isListEmpty()) return;
-  std::cout << "Enter the ID of the list which you would like to perform on: ";
-  // get the id of the list which they would like to view
-  int id = getValidInput::getInt(1, m_mainlist.size());
-  // make an iterator (0 based) and move it ahead id-1 times to allign with the
-  // intended element of the user
-  auto iterator = std::next(m_mainlist.begin(), id - 1);
-  // display the name and contents of the list
-  std::cout << "\n===List: " << iterator->first << "===\n";
-  iterator->second.printList();
-  // after coming back, check if the selected list was modified
-  // showMenu returns the list's save status (1 if synced)
-  if (!iterator->second.showMenu()) m_saveSynced = false;
-}
-
 // show main menu for current boss list
 void BossList::showMenu() {
   // put in a loop for current operations. Break when user is done
@@ -175,33 +203,22 @@ void BossList::showMenu() {
   }
 }
 
-// returns the name of the file the user wishes to save to.
-std::string BossList::getSaveName() {
-  // if the user created a new list, ask for file name and save, else ask if
-  // they would like to save to previously opened list, 0 indicates new
-  if (filename != "0") {
-    // ask the user if they would like to save to the file that was originally
-    // opened
-    std::cout << "Would you like to save to file " << filename << " ?(y/n)\n> ";
-    char response = getValidInput::getChar(std::string{"ynYN"});
-    // if the user wishes so, jump to saving
-    if (response == 'Y' || response == 'y') {
-      return filename;
-    };
-  }
-  // ask for a valid new file name
-  std::cout << "Name of the file to save to: ";
-  // get the name of the file to write to and save to that file
-  while (true){
-    filename = getValidInput::getString(25);
-    // since 0 is our indicator for new lists, it cannot be the file name
-    if (filename == "0" || !getValidInput::alphanumeric(filename)) {
-      std::cout << "Filename cannot be that. Try again: ";
-    } else
-      break;
-    // keep the loop going while the input is 0 or non alphanumeric
-  };
-  return filename;
+// retrieves a specific list from a menu
+void BossList::getList() {
+  // check if bosslist is empty
+  if (isListEmpty()) return;
+  std::cout << "Enter the ID of the list which you would like to perform on: ";
+  // get the id of the list which they would like to view
+  int id = getValidInput::getInt(1, m_mainlist.size());
+  // make an iterator (0 based) and move it ahead id-1 times to allign with the
+  // intended element of the user
+  auto iterator = std::next(m_mainlist.begin(), id - 1);
+  // display the name and contents of the list
+  std::cout << "\n===List: " << iterator->first << "===\n";
+  iterator->second.printList();
+  // after coming back, check if the selected list was modified
+  // showMenu returns the list's save status (1 if synced)
+  if (!iterator->second.showMenu()) m_saveSynced = false;
 }
 
 void BossList::saveList() {
@@ -218,14 +235,5 @@ void BossList::saveList() {
   std::cout << "Save Success!\n";
 }
 
-// saves the list before exiting just incase
-BossList::~BossList() {
-  // check if it is an empty collection
-  if (m_mainlist.empty()) {
-    std::cout << "Warning: Empty collection detected, no autosave.\n";
-    return;
-  }
 
-  // if the current mainlist is not in sync with save, save it before exiting
-  if (!m_saveSynced) saveList();
-}
+/*------------------------------------------------------*/

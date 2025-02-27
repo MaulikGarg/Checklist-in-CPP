@@ -13,15 +13,6 @@ void List::printList() {
   }
 }
 
-// function to add a given element to the list, returns false if the element
-// failed to be added in, Only used when loading a list, does not effect status
-bool List::addElement(const std::string& element) {
-  auto result = m_elements.insert(element);  // attempt to add an element
-  // check outcome
-  if (!result.second) return false;
-  return true;
-}
-
 void List::addElement() {
   while (true) {
     std::cout << "Enter the element(Type 0 to eliminate operation): ";
@@ -41,6 +32,15 @@ void List::addElement() {
     m_saveSync = false;
     std::cout << element << " has been added to the list.\n";
   }
+}
+
+// function to add a given element to the list, returns false if the element
+// failed to be added in, Only used when loading a list, does not effect status
+bool List::addElement(const std::string& element) {
+  auto result = m_elements.insert(element);  // attempt to add an element
+  // check outcome
+  if (!result.second) return false;
+  return true;
 }
 
 void List::removeElement() {
