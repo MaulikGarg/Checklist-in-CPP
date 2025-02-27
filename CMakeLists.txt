@@ -44,6 +44,7 @@ if(Catch2_FOUND)
     # Set sources for all the tests
     set(TESTS
         tests/getInputTest.cpp
+        tests/bossListTest.cpp
     )
 
     # Add the test executable and link it with Catch2 and your library

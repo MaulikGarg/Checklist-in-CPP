@@ -48,7 +48,8 @@ std::string BossList::getSaveName() {
 
 /*----------- PUBLIC FUNCTIONS -------------------------*/
 
-BossList::BossList() {
+// flag indicates whether the unit test version should run
+BossList::BossList(bool testing) : test{testing} {
   // ask user for their mainlist file name and make a json object of it
   std::cout << "Please enter the name of your collection file(type 0 to create "
                "new): ";
@@ -82,7 +83,8 @@ BossList::BossList() {
     // if its a new file
     std::cout << "New empty list made successfully!\n";
   }
-  showMenu();
+  //jump to the main menu if we are not testing
+  if(!test)showMenu();
 }
 
 

@@ -26,6 +26,8 @@ static_assert(max == std::size(str_options));
 // main list of all the available lists
 class BossList {
  private:
+  // flag to indicate if the unit test version of the function should run
+  bool test{false};
   // name of the file/bosslist
   std::string filename{"???"};
   // bool to keep track if any data has been changed since last save, used for
@@ -35,13 +37,13 @@ class BossList {
   std::map<std::string, List> m_mainlist;
   // returns true if the list is empty
   bool isListEmpty();
-  //returns the name of file the user wishes to save in.
+  // returns the name of file the user wishes to save in.
   std::string getSaveName();
 
  public:
   // default constructor, when invoked, asks for a file name and opens main
   // menu.
-  BossList();
+  BossList(bool testing = false);
   // default destructor, writes the current bosslist to a file for savinf
   ~BossList();
   // adds a list to the main list
