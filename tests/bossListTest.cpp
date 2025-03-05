@@ -73,4 +73,13 @@ TEST_CASE("BossList constructor tests") {
 
     REQUIRE(expected_output == b1.getOutput());
   }
+
+  SECTION("Bad file input test"){
+    // sample invalid file
+    bufferCapture b1{"sample_badfile"};
+
+    BossList testlist{true};
+
+    // should complain about bad file
+  }
 }
