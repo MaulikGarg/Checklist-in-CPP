@@ -28,6 +28,8 @@ bool didInpWork(bool ignoreBuffer) {
 namespace getValidInput {
 // get an integer from a range(inclusive) and verify if valid input
 int getInt(int min, int max) {
+  // validate arguments
+  if(min > max) throw std::runtime_error("Maximum value cannot be greater than minimum.\n");
   int input;
   while (true) {
     std::cin >> input;
@@ -47,6 +49,7 @@ int getInt(int min, int max) {
 
 // gets a string line of a maximum length
 std::string getString(int maxLength) {
+  if(maxLength < 1) throw std::runtime_error("MaxLength cannot be less than 1.\n");
   std::string str{};
   while (true) {
     // gets a full whitespaced string
