@@ -1,9 +1,9 @@
 # Checklist Organizer
 
-## 📌 Overview
+## Overview
 This is a **console-based Multi List Manager** built in **C++**. It allows users to create multiple lists, add or remove items from them, manage them efficiently, and save/load lists using **JSON**.
 
-## 🛠 Features
+## Features
 - Create and manage multiple lists.
 - Add and remove items from lists.
 - Display available lists and their contents.
@@ -69,20 +69,9 @@ The .json lists are saved in a **/lists** folder. Please note that it must be in
 - **Search Items** → Lookup an item across all lists.
 - **Save & Load** → Data persists between sessions using JSON.
 
-## ✨ TO-DO
+## TO-DO
 - Enforce semantically correct arguments in getInput module
 - Add Search for an item across all lists.
 - Load all list files (if any) when a BossList is requested and offer selection (and creating new), automatically ask for new list name when creating new.
 - Add the ability to rename a list/file from the main menu
-
-## 🚀 Future Improvements
-- Add custom file pathing.
-- Archive deleted list collections and auto delete after a week. Ability to back a list/collection up.
-- Develop a GUI version.
-
-## 📜 License
-This project is open-source and free to use.
-
-## 🤝 Contributing
-Contributions are welcome! Feel free to submit pull requests or report issues.
 
